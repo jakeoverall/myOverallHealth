@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myHealthApp">
+<head>
+    <title>My Overall Health</title>
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/app/styles/site.css" rel="stylesheet" />
+    <link href="/app/views/demo/styles/site.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div nav></div>
+    <div class="container">
+        <div class="demo">
+            <div class="screen">
+                <div class="nav-bar">
+                    <div class="nav-link">
+                        <a href="#/profiles"><div><i class="fa fa-users"></i>Profiles</div></a>
+                        <a href=""><div><i class="fa fa-medkit"></i>Medications</div></a>
+                        <a href=""><div><i class="fa fa-calendar"></i>Schedules</div></a>
+                        <a href=""><div><i class="fa fa-bar-chart-o"></i>Daily Logs</div></a>
+                        <a href=""><div><i class="fa fa-list-alt"></i>History</div></a>
+                        <a href=""><div><i class="fa fa-user-md"></i>Symptoms</div></a>
+                    </div>
+                </div>
+                <div class="content" ng-view=""></div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <scripts>
+        <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="/bower_components/angular-route/angular-route.js"></script>
+        <script type="text/javascript" src="/app/scripts/app.js"></script>
+        <script type="text/javascript" src="/app/views/demo/scripts/app.js"></script>
+    </scripts>
+
+</body>
+</html>

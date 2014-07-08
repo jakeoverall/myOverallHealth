@@ -5,7 +5,8 @@ myHealth.controller('navCtrl', ['$scope', function ($scope) {
         'name': 'Download',
         'link': '#/download'
     }, {
-        'name': 'Demo'
+        'name': 'Demo',
+        'link': '/app/views/demo/views/index.html'
     }, {
         'name': 'About',
         'link': '#/about'
@@ -23,6 +24,8 @@ myHealth.config(function ($routeProvider) {
             templateUrl: '/app/views/download/download.html'
         }).when('/contact', {
             templateUrl: '/app/views/contact/contact.html'
+        }).when('/demo', {
+            templateUrl: '/app/views/demo/views/index.html'
         }).otherwise({
             redirectTo: '/download'
         });
