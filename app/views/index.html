@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" ng-app="myHealth">
+<head>
+    <title>My Overall Health</title>
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="/bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/app/styles/site.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-fixed-top" ng-controller="navCtrl">
+        <div class="container">
+            <a class="navbar-brand" href="#">My Overall Health</a>
+            <ul class="nav navbar-nav">
+                <li ng-repeat="link in nav" class=""><a href="#">{{link.name}}</a></li>
+            </ul>
+            <ul class="nav navbar-nav pull-right">
+                <li><a href="#">Login</a></li>
+                <li><a href="#"><i class="glyphicon glyphicon-user"></i></a></li>
+            </ul>
+        </div>
+    </div>
+    <header>
+        <div class="container">
+            <article class="col-lg-6"><div class="preview"></div></article>
+            <article class="col-lg-6">
+                <p class="testimonial">
+                    I finally have a place to keep all of my family's medical information.
+                </p>
+                <p class="author">
+                    - Jean Wilder
+                </p>
+                <p class="author subscript">
+                    Mother of 3 and fulltime caregiver
+                </p>
+            </article>
+        </div>
+    </header>
+    <div class="container">
+        <header class="col-lg-12">Download Now</header>
+        <p>Available on the Android Market, Amazon Store, and Apple Itunes, My Overall Health will work and any device.</p>
+        <article>
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img data-src="holder.js/300x300" alt="...">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                            <p>...</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img data-src="holder.js/300x300" alt="...">
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                            <p>...</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="thumbnail">
+                        <img class="amazon"/>
+                        <div class="caption">
+                            <h3>Thumbnail label</h3>
+                            <p>...</p>
+                            <p><a href="#" class="btn btn-primary" role="button">Button</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div class="container">
+        <header class="col-lg-12">About My Overall Health</header>
+        <article class="col-lg-6">
+            <p>My Overall Health is a ready to load out of the box all inclusive health information tracking tool. Perfect for individual use or for managing several people's health care information at once. Busy moms trying to care for their own family as well as their aging parents love the versatility and functionality that is only found with My Overall Health.</p>
+            <p>My Overall Health was created and developed by a team of nurses from various backgrounds. Nurses often work as the mediator between an individual and their physician. Any caregiver knows how difficult it can be to manage a schedule of doctors appointments, when to take daily medication, how to monitor and track daily blood pressure or blood sugars. Finally an all inclusive tool that can help manage these problems and many more. </p>
+        </article>
+        <article class="col-lg-6">
+            <p>Feature include:</p>
+            <ul>
+                <li>Daily Medication Reminders</li>
+                <li>Physician Appointment Scheduling</li>
+                <li>Medication Manager</li>
+                <li>Daily Vital Sign Logs</li>
+                <li>Printable Reports</li>
+                <li>Immunization Reminders</li>
+                <li>Symptom Lookup</li>
+            </ul>
+        </article>
+    </div>
+
+
+
+    <scripts>
+        <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+        <script type="text/javascript" src="/app/scripts/app.js"></script>
+    </scripts>
+
+</body>
+</html>
