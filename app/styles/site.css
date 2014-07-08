@@ -18,7 +18,7 @@
     font-size: 12pt; }
 
 header {
-  margin-top: 96px;
+  margin: 30px 0 30px 0;
   background: #66ccee;
   color: white;
   text-align: center;
@@ -47,8 +47,36 @@ header {
     margin-top: 0;
     font-size: 13pt; }
 
-.thumbnail img {
-  height: 128px;
-  width: 128px; }
-  .thumbnail img .amazon {
-    background: url("/media/images/aa.png"); }
+.tagline {
+  font-size: 22pt;
+  margin: 30px auto; }
+  .tagline b {
+    color: red; }
+
+.thumbnail .img {
+  height: 256px;
+  width: 256px;
+  margin: 0 auto; }
+.thumbnail .amazon {
+  background: url("/media/images/aa.png"); }
+.thumbnail .apple {
+  background: url("/media/images/apple-icon.png"); }
+.thumbnail .android {
+  background: url("/media/images/play-store.png"); }
+.thumbnail .caption {
+  text-align: center; }
+
+.contact-form {
+  font-size: 14pt; }
+  .contact-form button {
+    margin: 20px auto;
+    float: right; }
+
+.panel-heading {
+  font-size: 14pt; }
+
+p {
+  font-size: 13pt; }
+
+.active {
+  font-size: 14pt; }
