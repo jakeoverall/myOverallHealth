@@ -76,5 +76,20 @@ myHealthApp.config(function ($routeProvider) {
         }).when('/profiles', {
             templateUrl: '/app/views/demo/views/profiles/profiles.html',
             controller: 'profileCtrl',
+        }).when('/medications', {
+            templateUrl: '/app/views/demo/views/medications/medications.html',
+            controller: 'profileCtrl',
+        }).when('/schedules', {
+            templateUrl: '/app/views/demo/views/schedules/schedules.html',
+            controller: 'profileCtrl',
+        }).when('/logs', {
+            templateUrl: '/app/views/demo/views/logs/logs.html',
+            controller: 'profileCtrl',
+        }).when('/history', {
+            templateUrl: '/app/views/demo/views/history/history.html',
+            controller: 'profileCtrl',
+        }).when('/symptoms', {
+            templateUrl: '/app/views/demo/views/symptoms/symptoms.html',
+            controller: 'profileCtrl',
         });
 });
