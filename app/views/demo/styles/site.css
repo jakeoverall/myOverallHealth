@@ -31,9 +31,43 @@ body {
       .demo .screen .nav-bar .nav-link a {
         color: white;
         text-decoration: none; }
-      .demo .screen .nav-bar .nav-link div:hover {
+      .demo .screen .nav-bar .nav-link a:nth-child(1) div:hover {
+        background-color: purple; }
+      .demo .screen .nav-bar .nav-link a:nth-child(2) div:hover {
         background-color: green; }
+      .demo .screen .nav-bar .nav-link a:nth-child(3) div:hover {
+        background-color: orange; }
+      .demo .screen .nav-bar .nav-link a:nth-child(4) div:hover {
+        background-color: red; }
+      .demo .screen .nav-bar .nav-link a:nth-child(5) div:hover {
+        background-color: blue; }
+      .demo .screen .nav-bar .nav-link a:nth-child(6) div:hover {
+        background-color: orangered; }
     .demo .screen .content {
       height: 479px;
-      background-color: red;
-      padding: 20px 150px; }
+      padding: 20px 0 0 150px;
+      overflow: hidden; }
+      .demo .screen .content .btn-sm {
+        font-size: 11px; }
+      .demo .screen .content .profiles {
+        display: inline-block; }
+        .demo .screen .content .profiles a {
+          text-decoration: none; }
+        .demo .screen .content .profiles a:hover {
+          cursor: pointer; }
+        .demo .screen .content .profiles .profile {
+          display: inline-block;
+          height: 120px;
+          width: 140px;
+          padding: 10px;
+          font-size: 16px;
+          font-weight: bold;
+          text-align: center;
+          text-decoration: none;
+          color: white;
+          background-color: #444444;
+          margin: 20px; }
+          .demo .screen .content .profiles .profile .fa {
+            font-size: 80px; }
+        .demo .screen .content .profiles .profile:hover {
+          background-color: purple; }
