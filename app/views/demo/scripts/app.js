@@ -1,15 +1,13 @@
-﻿var myHealthApp = angular.module('myHealthApp', ['ngRoute', 'ui.bootstrap']);
+﻿var myHealthApp = angular.module('myHealthApp', ['ngRoute', 'ngResource', 'ui.bootstrap']);
 
 
-//Defining Profiles
-var profiles = [];
-
+//Defining Profile
 var Profile = function (firstName, lastName, dob) {
     this.firstName = firstName;
     this.lastName = lastName;
-    this.link = '#/p' + profiles.length + '_' + this.firstName.trim().split(' ').join('');
     this.dob = dob;
 };
+
 
 //Controllers
 myHealthApp.controller('navCtrl', ['$scope', function ($scope) {
@@ -22,20 +20,36 @@ myHealthApp.controller('navCtrl', ['$scope', function ($scope) {
     }];
 }]);
 
+//Services
+myHealthApp.factory('Profiles', ['$http', function ($http) {
+    return {
+        get: function () {
+            return [
+                { 'firstName': 'Jake', 'lastName': 'Overall', 'dob': '01/01/1980' },
+                { 'firstName': 'Kim', 'lastName': 'Overall', 'dob': '01/01/1990' }
+            ];
+        },
+        post: function() {
+            
+        }
+    };
+}]);
 
-myHealthApp.controller('profileCtrl', ['$scope', function ($scope) {
+
+
+myHealthApp.controller('profileCtrl', ['$scope', 'Profiles', function ($scope, Profiles) {
     $scope.showForm = false;
-    $scope.profiles = profiles;
+    $scope.profiles = Profiles.get();
     $scope.toggleForm = function () {
         $scope.showForm = !$scope.showForm;
     };
     $scope.addProfile = function () {
-        var profile = new Profile(this.firstName, this.lastName);
-        profiles.push(profile);
+        debugger;
+        var profile = new Profile(this.firstName, this.lastName, this.dob);
+        Profiles.post(profile);
         document.getElementById('addProfileForm').reset();
         $scope.showForm = false;
         $scope.addProfileForm.$setPristine();
-        console.log(profiles);
     };
 }]);
 

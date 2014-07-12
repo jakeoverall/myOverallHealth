@@ -1,4 +1,4 @@
-﻿<div class="col-lg-10">
+﻿<div class="col-lg-11">
     <form id="addProfileForm" name="addProfileForm" ng-submit="addProfile()" ng-show="showForm">
 
         <label for="firstName">First Name</label>
@@ -20,7 +20,7 @@
     </form>
 
     <div class="profiles" ng-repeat="profile in profiles">
-        <a ng-href="{{profile.link}}"><div class="profile"><i class="fa fa-user"></i><br/>{{profile.firstName}} {{profile.lastName}}</div></a>
+        <a ng-href="#"><div class="profile"><i class="fa fa-user"></i><br/>{{profile.firstName}} {{profile.lastName}}</div></a>
     </div>
     <div class="profiles">
         <a ng-click="toggleForm()"><div class="profile"><i class="fa fa-plus"></i><br />New Profile</div></a>
