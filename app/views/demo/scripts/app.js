@@ -22,15 +22,17 @@ myHealthApp.controller('navCtrl', ['$scope', function ($scope) {
 
 //Services
 myHealthApp.factory('Profiles', ['$http', function ($http) {
-    return {
-        get: function () {
-            return [
+    var profiles = [
                 { 'firstName': 'Jake', 'lastName': 'Overall', 'dob': '01/01/1980' },
                 { 'firstName': 'Kim', 'lastName': 'Overall', 'dob': '01/01/1990' }
-            ];
+    ];
+
+    return {
+        get: function () {
+            return profiles;
         },
-        post: function() {
-            
+        post: function(profile) {
+            profiles.push(profile);
         }
     };
 }]);
