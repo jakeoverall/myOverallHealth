@@ -1,14 +1,6 @@
 ﻿var myHealthApp = angular.module('myHealthApp', ['ngRoute', 'ngResource', 'ui.bootstrap', 'ui.calendar']);
 
 
-//Defining Profile
-var Profile = function (firstName, lastName, dob, profileId) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.dob = dob;
-    this.profileId = profileId;
-};
-
 //Calendar
 function scheduleCtrl($scope) {
     var date = new Date();
