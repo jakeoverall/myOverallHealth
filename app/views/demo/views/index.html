@@ -4,6 +4,7 @@
     <title>My Overall Health</title>
     <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
     <link href="/bower_components/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="/bower_components/fullcalendar/fullcalendar.css" rel="stylesheet" />
     <link href="/app/styles/site.css" rel="stylesheet" />
     <link href="/app/views/demo/styles/site.css" rel="stylesheet" />
 
@@ -31,14 +32,36 @@
 
 
     <scripts>
+        
+        <!-- Bower_Componets -->
+        <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
         <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
         <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
         <script type="text/javascript" src="/bower_components/angular/angular.js"></script>
         <script type="text/javascript" src="/bower_components/angular-route/angular-route.js"></script>
         <script type="text/javascript" src="/bower_components/angular-resource/angular-resource.js"></script>
         <script type="text/javascript" src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script type="text/javascript" src="/bower_components/angular-ui-calendar/src/calendar.js"></script>
+        <script type="text/javascript" src="/bower_components/fullcalendar/fullcalendar.js"></script>
+        <script type="text/javascript" src="/bower_components/fullcalendar/gcal.js"></script>
+        
         <script type="text/javascript" src="/app/scripts/app.js"></script>
+
+        <!-- Demo App -->
         <script type="text/javascript" src="/app/views/demo/scripts/app.js"></script>
+
+        <!-- Services -->
+        <script type="text/javascript" src="/app/views/demo/scripts/services/parse/parseHeaders.js"></script>
+        <script type="text/javascript" src="/app/views/demo/scripts/services/parse/parseService.js"></script>
+        
+        <!-- Controllers -->
+        <script type="text/javascript" src="/app/views/demo/scripts/controllers/profiles/profilesCtrl.js"></script>
+        <script type="text/javascript" src="/app/views/demo/scripts/controllers/profiles/detailsCtrl.js"></script>
+        <script type="text/javascript" src="/app/views/demo/scripts/controllers/navCtrl.js"></script>
+        
+        <!-- Directives -->
+        <script type="text/javascript" src="/app/views/demo/scripts/directives/nav.js"></script>
+
     </scripts>
 
 </body>

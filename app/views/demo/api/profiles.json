@@ -1,4 +1,10 @@
-﻿[
-{'firstName': 'Jake', 'lastName': 'Overall', 'dob': '01/01/1980' },
-{'firstName': 'Kim', 'lastName': 'Overall', 'dob': '01/01/1990' }
-]
+﻿{
+	'firstName': 'Jake', 
+	'lastName': 'Overall', 
+	'dob': '01/01/1980' 
+},
+{
+	'firstName': 'Kim',
+	'lastName': 'Overall', 
+	'dob': '01/01/1990' 
+}

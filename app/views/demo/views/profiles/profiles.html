@@ -1,5 +1,8 @@
 ﻿<div class="col-lg-11">
     <form id="addProfileForm" name="addProfileForm" ng-submit="addProfile()" ng-show="showForm">
+        
+        <label class="pull-right" for="profileId">Profiles: {{profileId}}</label><br/>
+        <input class="hidden" type="text" ng-model="profileId" id="profileId" value="profileId" required readonly />
 
         <label for="firstName">First Name</label>
         <input class="form-control" type="text" ng-model="firstName" id="firstName" required />
@@ -20,13 +23,11 @@
     </form>
 
     <div class="profiles" ng-repeat="profile in profiles">
-        <a ng-href="#"><div class="profile"><i class="fa fa-user"></i><br/>{{profile.firstName}} {{profile.lastName}}</div></a>
+        <a ng-href="#/profiles/{{profile.profileId}}"><div class="profile"><i class="fa fa-user"></i><br />{{profile.firstName}} {{profile.lastName}}</div></a>
     </div>
     <div class="profiles">
         <a ng-click="toggleForm()"><div class="profile"><i class="fa fa-plus"></i><br />New Profile</div></a>
     </div>
 
 </div>
-
-<!--<div class="col-lg-2"><button ng-click="toggleForm()" class="btn btn-primary">New Profile</button></div>-->
 
