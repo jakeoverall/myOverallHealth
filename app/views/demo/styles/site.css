@@ -73,3 +73,17 @@ body {
             font-size: 80px; }
         .demo .screen .content .profiles .profile:hover {
           background-color: purple; }
+      .demo .screen .content .btn-pink {
+        color: white;
+        background-color: pink;
+        border-color: lightpink; }
+      .demo .screen .content .btn-pink:hover {
+        color: white;
+        background-color: #dfa5af;
+        border-color: #c5919a; }
+      .demo .screen .content .btn-pink.active {
+        color: white;
+        background-color: #dfa5af;
+        border-color: #c5919a; }
+      .demo .screen .content .fa {
+        font-size: 16px; }
