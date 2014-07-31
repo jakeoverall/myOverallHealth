@@ -2,6 +2,8 @@
 
 myHealthApp.service('parseService', function ($http) {
 
+    this.profile = {};
+
     this.getProfiles = function () {
         return $http({
             'method': 'GET',
@@ -17,10 +19,19 @@ myHealthApp.service('parseService', function ($http) {
         });
     };
 
+    this.updateProfile = function(data, id) {
+        return $http({
+            'method': 'PUT',
+            'url': 'https://api.parse.com/1/classes/profiles/' + id,
+            'data': data
+        });
+    };
+
+
     this.removeProfile = function (id) {
         return $http({
             method: 'DELETE',
-            url: 'https://api.parse.com/1/classes/profiles/' + id
+            url: 'https://api.parse.com/1/classes/profiles/' + id 
         });
     };
 
@@ -28,12 +39,9 @@ myHealthApp.service('parseService', function ($http) {
     this.getProfile = function (id) {
         return $http({
             method: 'GET',
-            url: 'https://api.parse.com/1/classes/profiles/'
+            url: 'https://api.parse.com/1/classes/profiles/' + id
         }).then(function (response) {
-            var profile = response.data.results[id];
-            return profile;
+            return response.data;
         });
     };
-
-
 });

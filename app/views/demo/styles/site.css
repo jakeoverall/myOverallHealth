@@ -75,15 +75,15 @@ body {
           background-color: purple; }
       .demo .screen .content .btn-pink {
         color: white;
-        background-color: pink;
-        border-color: lightpink; }
+        background-color: #dfa5af;
+        border-color: #c5919a; }
       .demo .screen .content .btn-pink:hover {
         color: white;
-        background-color: #dfa5af;
-        border-color: #c5919a; }
+        background-color: #a86d78;
+        border-color: #a86d78; }
       .demo .screen .content .btn-pink.active {
         color: white;
-        background-color: #dfa5af;
-        border-color: #c5919a; }
+        background-color: #a86d78;
+        border-color: #a86d78; }
       .demo .screen .content .fa {
         font-size: 16px; }

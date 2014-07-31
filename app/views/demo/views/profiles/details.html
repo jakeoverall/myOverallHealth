@@ -1,42 +1,53 @@
 ﻿<h1>{{profile.firstName}} {{profile.lastName}}</h1>
 
 <div class="col-lg-8">
-
     <form class="form-horizontal">
-
+        
         <div class="form-group">
             <label class="col-sm-3 control-label">Height:</label>
-            <div class="col-sm-6 input-group">
+            <div class="col-sm-6 input-group" ng-show="edit">
                 <input class="form-control" ng-model="height" placeholder="Height in Inches"/>
                 <span class="input-group-addon">Inches</span>
             </div>
+            <div class="col-sm-6" ng-show="!edit">{{height}} inches</div>
         </div>
         
 
         <div class="form-group">
             <label class="col-sm-3 control-label">Weight:</label>
-            <div class="col-sm-6 input-group">
+            <div class="col-sm-6 input-group" ng-show="edit">
                 <input class="form-control" ng-model="weight" placeholder="Weight in Pounds" />
                 <span class="input-group-addon">Pounds</span>
             </div>
+            <div class="col-sm-6" ng-show="!edit">{{weight}} lbs</div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-3 control-label">Blood Type:</label>
-            <div class="col-sm-6">
+            <div class="col-sm-6" ng-show="edit">
                 <select class="form-control" ng-model="bloodType" ng-options="bloodType for bloodType in bloodTypes"></select>
             </div>
+            <div class="col-sm-6" ng-show="!edit">{{bloodType}}</div>
         </div>
 
         <div class="form-group">
             <label class="col-sm-3 control-label">Gender:</label>
-            <div class="col-sm-6">
-                <label class="btn btn-primary btn-sm" ng-model="gender" btn-radio="'M'" uncheckable><i class="fa fa-male"></i> Male</label>
-                <label class="btn btn-pink btn-sm" ng-model="gender" btn-radio="'F'" uncheckable><i class="fa fa-female"></i> Female</label>
+            <div class="col-sm-6" ng-show="edit">
+                <label class="btn btn-primary btn-sm" ng-model="gender" btn-radio="'Male'" uncheckable><i class="fa fa-male"></i> Male</label>
+                <label class="btn btn-pink btn-sm" ng-model="gender" btn-radio="'Female'" uncheckable><i class="fa fa-female"></i> Female</label>
+            </div>
+            <div class="col-sm-3" ng-show="!edit">
+                <label ng-class="genderBtn"><i ng-class="genderClass"></i> {{gender}}</label>
             </div>
         </div>
-
-
+        
+        <div class="btn-group pull-right" ng-show="!edit">
+            <button class="btn btn-primary btn-sm" ng-click="editDetails()"><i class="fa fa-edit"></i> Edit</button>
+            <button class="btn btn-danger btn-sm" ng-click=""><i class="fa fa-minus-square"></i> Remove</button>
+        </div>
+        
+        <button class="btn btn-success btn-sm pull-right" ng-click="saveDetails()" ng-show="edit"><i class="fa fa-save"></i> Save</button>
+        
     </form>
 </div>
 

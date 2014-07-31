@@ -142,6 +142,13 @@ myHealthApp.config(['$routeProvider', '$httpProvider', function ($routeProvider,
         }).when('/profiles/:id', {
             templateUrl: '/app/views/demo/views/profiles/details.html',
             controller: 'detailsCtrl'
+            //resolve: {
+            //    load: function ($route, parseService) {
+            //        parseService.getProfile($route.current.params.id).then(function (response) {
+            //            parseService.profile = response;
+            //        });
+            //    }
+            //}
         }).when('/medications', {
             templateUrl: '/app/views/demo/views/medications/medications.html',
             controller: 'profilesCtrl',

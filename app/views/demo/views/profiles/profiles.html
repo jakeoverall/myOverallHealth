@@ -23,7 +23,7 @@
     </form>
 
     <div class="profiles" ng-repeat="profile in profiles">
-        <a ng-href="#/profiles/{{profile.profileId}}"><div class="profile"><i class="fa fa-user"></i><br />{{profile.firstName}} {{profile.lastName}}</div></a>
+        <a ng-href="#/profiles/{{profile.objectId}}"><div class="profile"><i class="fa fa-user"></i><br />{{profile.firstName}} {{profile.lastName}}</div></a>
     </div>
     <div class="profiles">
         <a ng-click="toggleForm()"><div class="profile"><i class="fa fa-plus"></i><br />New Profile</div></a>
