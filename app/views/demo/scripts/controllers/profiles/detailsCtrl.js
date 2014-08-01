@@ -1,6 +1,6 @@
 ﻿var myHealthApp = angular.module('myHealthApp');
 
-myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams', function ($scope, parseService, $routeParams) {
+myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams', '$location', function ($scope, parseService, $routeParams, $location) {
 
     var profile = {};
 
@@ -75,7 +75,26 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
                 console.log(response);
                 $scope.editDetails();
             });
-        };
+    };
+
+    $scope.removeProfile = function () {
+
+        var verify = prompt('To remove this profile type in ' + profile.firstName + ' ' + profile.lastName + ' Exactly as it appears here');
+        
+        if (verify === profile.firstName + ' ' + profile.lastName) {
+            profile.removed = true;
+            profile.removedAt = new Date();
+
+            parseService.removeProfile(profile, profile.objectId).then(function(response) {
+                console.log(response);
+                alert('Profile Removed Successfully');
+                $location.path('/profiles');
+            });
+        } else {
+            alert('The profile was not removed');
+        }
+
+    };
 
         getProfile();
 

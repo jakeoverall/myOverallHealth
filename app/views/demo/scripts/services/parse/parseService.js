@@ -6,33 +6,34 @@ myHealthApp.service('parseService', function ($http) {
 
     this.getProfiles = function () {
         return $http({
-            'method': 'GET',
-            'url': 'https://api.parse.com/1/classes/profiles'
+            method: 'GET',
+            url: 'https://api.parse.com/1/classes/profiles'
         });
     };
 
     this.addProfile = function (data) {
         return $http({
-            'method': 'POST',
-            'url': 'https://api.parse.com/1/classes/profiles',
-            'data': data
+            method: 'POST',
+            url: 'https://api.parse.com/1/classes/profiles',
+            data: data
         });
     };
 
     this.updateProfile = function(data, id) {
         return $http({
-            'method': 'PUT',
-            'url': 'https://api.parse.com/1/classes/profiles/' + id,
-            'data': data
+            method: 'PUT',
+            url: 'https://api.parse.com/1/classes/profiles/' + id,
+            data: data
         });
     };
 
 
-    this.removeProfile = function (id) {
+    this.removeProfile = function (data, id) {
         return $http({
-            method: 'DELETE',
-            url: 'https://api.parse.com/1/classes/profiles/' + id 
-        });
+            method: 'PUT',
+            url: 'https://api.parse.com/1/classes/profiles/' + id,
+            data: data
+    });
     };
 
 

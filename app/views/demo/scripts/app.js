@@ -151,7 +151,7 @@ myHealthApp.config(['$routeProvider', '$httpProvider', function ($routeProvider,
             //}
         }).when('/medications', {
             templateUrl: '/app/views/demo/views/medications/medications.html',
-            controller: 'profilesCtrl',
+            controller: 'detailsCtrl',
         }).when('/schedules', {
             templateUrl: '/app/views/demo/views/schedules/schedules.html',
             controller: 'profilesCtrl',

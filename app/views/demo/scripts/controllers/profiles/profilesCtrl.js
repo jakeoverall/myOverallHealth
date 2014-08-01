@@ -41,5 +41,18 @@ myHealthApp.controller('profilesCtrl', ['$scope', 'parseService', function ($sco
         $scope.addProfileForm.$setPristine();
     };
 
+    $scope.restoreProfile = function () {
+        if (confirm('Would you like to restore this profile?')) {
+            this.profile.removed = false;
+            this.profile.removedAt = null;
+
+            parseService.updateProfile(this.profile, this.profile.objectId).then(function(res) {
+                console.log(res);
+                getProfiles();
+            });
+        } 
+
+    };
+
     getProfiles();
 }]);
