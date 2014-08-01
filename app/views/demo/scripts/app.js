@@ -134,12 +134,14 @@ myHealthApp.config(['$routeProvider', '$httpProvider', function ($routeProvider,
 
 
     $routeProvider
-        .when('/download', {
+        .when('/', {
+            templateUrl: '/app/views/demo/views/shared/main.html'
+        }).when('/download', {
             templateUrl: '/app/views/download/download.html'
         }).when('/profiles', {
             templateUrl: '/app/views/demo/views/profiles/profiles.html',
             controller: 'profilesCtrl'
-        }).when('/profiles/:id', {
+        }).when('/details/:id', {
             templateUrl: '/app/views/demo/views/profiles/details.html',
             controller: 'detailsCtrl'
             //resolve: {
@@ -149,19 +151,19 @@ myHealthApp.config(['$routeProvider', '$httpProvider', function ($routeProvider,
             //        });
             //    }
             //}
-        }).when('/medications', {
+        }).when('/medications/:id', {
             templateUrl: '/app/views/demo/views/medications/medications.html',
             controller: 'detailsCtrl',
-        }).when('/schedules', {
+        }).when('/schedules/:id', {
             templateUrl: '/app/views/demo/views/schedules/schedules.html',
             controller: 'profilesCtrl',
-        }).when('/logs', {
+        }).when('/logs/:id', {
             templateUrl: '/app/views/demo/views/logs/logs.html',
             controller: 'profilesCtrl',
-        }).when('/history', {
+        }).when('/history/:id', {
             templateUrl: '/app/views/demo/views/history/history.html',
             controller: 'profilesCtrl',
-        }).when('/symptoms', {
+        }).when('/symptoms/:id', {
             templateUrl: '/app/views/demo/views/symptoms/symptoms.html',
             controller: 'profilesCtrl',
         });

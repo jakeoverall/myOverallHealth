@@ -14,17 +14,9 @@
     <div class="container">
         <div class="demo">
             <div class="screen">
-                <div class="nav-bar">
-                    <div class="nav-link">
-                        <a href="#/profiles"><div><i class="fa fa-users"></i>Profiles</div></a>
-                        <a href="" ng-href="#/medications/{{profile.profileId}}"><div><i class="fa fa-medkit"></i>Medications</div></a>
-                        <a href="#/schedules"><div><i class="fa fa-calendar"></i>Schedules</div></a>
-                        <a href="#/logs"><div><i class="fa fa-bar-chart-o"></i>Daily Logs</div></a>
-                        <a href="#/history"><div><i class="fa fa-list-alt"></i>History</div></a>
-                        <a href="#symptoms"><div><i class="fa fa-user-md"></i>Symptoms</div></a>
-                    </div>
+                <div ng-view="">
+
                 </div>
-                <div class="content" ng-view=""></div>
             </div>
         </div>
     </div>
@@ -32,7 +24,7 @@
 
 
     <scripts>
-        
+
         <!-- Bower_Componets -->
         <script src="//www.parsecdn.com/js/parse-1.2.19.min.js"></script>
         <script type="text/javascript" src="/bower_components/jquery/dist/jquery.js"></script>
@@ -44,7 +36,7 @@
         <script type="text/javascript" src="/bower_components/angular-ui-calendar/src/calendar.js"></script>
         <script type="text/javascript" src="/bower_components/fullcalendar/fullcalendar.js"></script>
         <script type="text/javascript" src="/bower_components/fullcalendar/gcal.js"></script>
-        
+
         <script type="text/javascript" src="/app/scripts/app.js"></script>
 
         <!-- Demo App -->
@@ -53,14 +45,15 @@
         <!-- Services -->
         <script type="text/javascript" src="/app/views/demo/scripts/services/parse/parseHeaders.js"></script>
         <script type="text/javascript" src="/app/views/demo/scripts/services/parse/parseService.js"></script>
-        
+
         <!-- Controllers -->
         <script type="text/javascript" src="/app/views/demo/scripts/controllers/profiles/profilesCtrl.js"></script>
         <script type="text/javascript" src="/app/views/demo/scripts/controllers/profiles/detailsCtrl.js"></script>
         <script type="text/javascript" src="/app/views/demo/scripts/controllers/navCtrl.js"></script>
-        
+
         <!-- Directives -->
         <script type="text/javascript" src="/app/views/demo/scripts/directives/nav.js"></script>
+        <script type="text/javascript" src="/app/views/demo/scripts/directives/appNav.js"></script>
         <script type="text/javascript" src="/app/views/demo/scripts/directives/bmi.js"></script>
 
     </scripts>

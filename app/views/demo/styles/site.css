@@ -49,6 +49,21 @@ body {
       height: 479px;
       padding: 20px 0 0 150px;
       overflow: hidden; }
+      .demo .screen .content .main-link a {
+        font-size: 25px;
+        color: white;
+        text-decoration: none; }
+      .demo .screen .content .main-link .fa {
+        font-size: 85px; }
+      .demo .screen .content .main-link .select-profiles {
+        background-color: #444444;
+        padding: 40px 0;
+        text-align: center;
+        margin: 15% 30%;
+        height: 200px;
+        width: 200px; }
+      .demo .screen .content .main-link .select-profiles:hover {
+        background-color: purple; }
       .demo .screen .content .btn-sm {
         font-size: 11px; }
       .demo .screen .content .profiles {
