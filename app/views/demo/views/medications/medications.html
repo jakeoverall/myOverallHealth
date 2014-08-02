@@ -1,7 +1,64 @@
 ﻿<div app-nav></div>
-<div class="content">
+<div class="content" ng-controller="medicationsCtrl">
     <div class="col-lg-10">
         <h1>Medications for {{profile.firstName}}</h1>
 
-    </div>    
+        <table class="table table-striped table-bordered table-responsive">
+            <thead>Active Medications</thead>
+            <tbody>
+                <tr>
+                    <th>Name</th>
+                    <th>Strength</th>
+                    <th>Quantity</th>
+                    <th>Route</th>
+                    <th>Frequency</th>
+                    <th>Start Date</th>
+                    <th>Rx Number</th>
+                    <th>Notes</th>
+                </tr>
+                <tr ng-repeat="med in medications | filter:active">
+                    <td>{{med.name}}</td>
+                    <td>{{med.strength}}</td>
+                    <td>{{med.quantity}}</td>
+                    <td>{{med.route}}</td>
+                    <td>{{med.frequency}}</td>
+                    <td>{{med.start}}</td>
+                    <td>{{med.rxNumber}}</td>
+                    <td>{{med.notes}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+        <button ng-click="addMed()">Add Med</button>
+
+        <hr />
+
+        <table class="table table-striped table-bordered table-responsive">
+            <thead>Discontinued Medications</thead>
+            <tr>
+                <th>Name</th>
+                <th>Strength</th>
+                <th>Quantity</th>
+                <th>Route</th>
+                <th>Frequency</th>
+                <th>Start Date</th>
+                <th>Rx Number</th>
+                <th>Notes</th>
+            </tr>
+            <tbody>
+                <tr ng-repeat="med in medications | filter:!active">
+                    <td>{{med.name}}</td>
+                    <td>{{med.strength}}</td>
+                    <td>{{med.quantity}}</td>
+                    <td>{{med.route}}</td>
+                    <td>{{med.frequency}}</td>
+                    <td>{{med.start}}</td>
+                    <td>{{med.rxNumber}}</td>
+                    <td>{{med.notes}}</td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </div>
 </div>

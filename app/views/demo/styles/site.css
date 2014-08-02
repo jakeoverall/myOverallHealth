@@ -102,3 +102,5 @@ body {
         border-color: #a86d78; }
       .demo .screen .content .fa {
         font-size: 16px; }
+      .demo .screen .content .green-bg {
+        background-color: green; }

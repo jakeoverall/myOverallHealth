@@ -87,7 +87,6 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
 
             parseService.removeProfile(profile, profile.objectId).then(function(response) {
                 console.log(response);
-                alert('Profile Removed Successfully');
                 $location.path('/profiles');
             });
         } else {
