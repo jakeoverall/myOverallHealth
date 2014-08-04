@@ -51,6 +51,8 @@ myHealthApp.service('parseService', function ($http) {
         return $http({
             method: 'GET',
             url: 'https://api.parse.com/1/classes/medications/'
+        }).then(function(res) {
+            return res.data;
         });
     };
 

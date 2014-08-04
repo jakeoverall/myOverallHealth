@@ -1,0 +1,47 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title">New Medication</h3>
+</div>
+<div class="modal-body">
+    <form id="addMedicationForm" name="addMedicationForm" ng-submit="addMed()">
+
+        <!--<label for="profileId">Profiles: {{profileId}}</label>
+        <input class="hidden" type="text" ng-model="profileId" id="profileId" value="profileId" required readonly />
+        <br />-->
+
+        <label for="name">Name:</label>
+        <input class="form-control" type="text" ng-model="name" id="name" placeholder="Example: Tylenol" required />
+
+        <label for="strength">Strength</label>
+        <input class="form-control" type="text" ng-model="strength" id="strength" placeholder="Example: 10MG" />
+
+        <label for="quantity">Quantity</label>
+        <input class="form-control" type="text" ng-model="quantity" id="quantity" placeholder="Example: 1-2 Tab(s)" />
+
+        <label for="route">Route</label>
+        <select class="form-control" id="route" ng-model="route" ng-options="route for route in routes"></select>
+
+        <label for="frequency">Frequency</label>
+        <input class="form-control" type="text" ng-model="frequency" id="frequency" placeholder="Example: Twice Daily" />
+
+        <label for="startDate">Start Date</label>
+        <p class="input-group" ng-controller="datePickerCtrl">
+            <input class="form-control" type="text" datepicker-popup="{{format}}" is-open="opened" ng-model="startDate" id="startDate" datepicker-options="dateOptions" />
+            <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+            </span>
+        </p>
+
+        <label for="rxNumber">Prescription Number</label>
+        <input class="form-control" type="text" ng-model="rxNumber" id="rxNumber" placeholder="Example: X34521BC1" />
+
+        <label for="notes">Notes</label>
+        <input class="form-control" type="text" ng-model="notes" id="notes" placeholder="Example: Take as needed for breakthough pain" />
+
+        <div class="modal-footer">
+            <input class="btn btn-success" type="submit" id="submit" value="Add Medication" />
+            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+

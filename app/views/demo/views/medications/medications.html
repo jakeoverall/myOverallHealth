@@ -1,64 +1,79 @@
 ﻿<div app-nav></div>
+
 <div class="content" ng-controller="medicationsCtrl">
-    <div class="col-lg-10">
+    <div class="col-lg-12">
         <h1>Medications for {{profile.firstName}}</h1>
 
-        <table class="table table-striped table-bordered table-responsive">
-            <thead>Active Medications</thead>
-            <tbody>
-                <tr>
-                    <th>Name</th>
-                    <th>Strength</th>
-                    <th>Quantity</th>
-                    <th>Route</th>
-                    <th>Frequency</th>
-                    <th>Start Date</th>
-                    <th>Rx Number</th>
-                    <th>Notes</th>
-                </tr>
-                <tr ng-repeat="med in medications | filter:active">
-                    <td>{{med.name}}</td>
-                    <td>{{med.strength}}</td>
-                    <td>{{med.quantity}}</td>
-                    <td>{{med.route}}</td>
-                    <td>{{med.frequency}}</td>
-                    <td>{{med.start}}</td>
-                    <td>{{med.rxNumber}}</td>
-                    <td>{{med.notes}}</td>
-                </tr>
-            </tbody>
+        <div ng-controller="newMedFormCtrl">
+            <button class="btn btn-primary pull-right" ng-click="open()">Add Medication</button>
+        </div>
+        <br/>
 
-        </table>
-        <button ng-click="addMed()">Add Med</button>
+        <div class="medications-table">
+            <table class="table table-striped table-bordered table-responsive active-meds">
+                <thead>Active Medications</thead>
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>Strength</th>
+                        <th>Quantity</th>
+                        <th>Route</th>
+                        <th>Frequency</th>
+                        <th>Start Date</th>
+                        <th>Rx Number</th>
+                        <th>Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr ng-repeat="med in medications | filter:active">
+                        <td>{{med.name}}</td>
+                        <td>{{med.strength}}</td>
+                        <td>{{med.quantity}}</td>
+                        <td>{{med.route}}</td>
+                        <td>{{med.frequency}}</td>
+                        <td>{{med.start}}</td>
+                        <td>{{med.rxNumber}}</td>
+                        <td>{{med.notes}}</td>
+                        <td>Discontinue</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
 
         <hr />
 
-        <table class="table table-striped table-bordered table-responsive">
-            <thead>Discontinued Medications</thead>
-            <tr>
-                <th>Name</th>
-                <th>Strength</th>
-                <th>Quantity</th>
-                <th>Route</th>
-                <th>Frequency</th>
-                <th>Start Date</th>
-                <th>Rx Number</th>
-                <th>Notes</th>
-            </tr>
-            <tbody>
-                <tr ng-repeat="med in medications | filter:!active">
-                    <td>{{med.name}}</td>
-                    <td>{{med.strength}}</td>
-                    <td>{{med.quantity}}</td>
-                    <td>{{med.route}}</td>
-                    <td>{{med.frequency}}</td>
-                    <td>{{med.start}}</td>
-                    <td>{{med.rxNumber}}</td>
-                    <td>{{med.notes}}</td>
-                </tr>
-            </tbody>
+        <div class="medications-table">
+            <table class="table table-striped table-bordered table-responsive discontinued-meds">
+                <thead>Discontinued Medications</thead>
+                <tbody>
+                    <tr>
+                        <th>Name</th>
+                        <th>Strength</th>
+                        <th>Quantity</th>
+                        <th>Route</th>
+                        <th>Frequency</th>
+                        <th>Start Date</th>
+                        <th>Rx Number</th>
+                        <th>Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr ng-repeat="med in medications | filter:!active">
+                        <td>{{med.name}}</td>
+                        <td>{{med.strength}}</td>
+                        <td>{{med.quantity}}</td>
+                        <td>{{med.route}}</td>
+                        <td>{{med.frequency}}</td>
+                        <td>{{med.start}}</td>
+                        <td>{{med.rxNumber}}</td>
+                        <td>{{med.notes}}</td>
+                        <td>Start</td>
+                    </tr>
+                </tbody>
 
-        </table>
+            </table>
+
+        </div>
 
     </div>
 </div>
