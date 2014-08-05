@@ -52,7 +52,7 @@ myHealthApp.service('parseService', function ($http) {
             method: 'GET',
             url: 'https://api.parse.com/1/classes/medications/'
         }).then(function(res) {
-            return res.data;
+            return res.data.results;
         });
     };
 
@@ -73,7 +73,7 @@ myHealthApp.service('parseService', function ($http) {
     };
 
 
-    this.disconinueMedication = function (data, id) {
+    this.discontinueMedication = function (data, id) {
         return $http({
             method: 'PUT',
             url: 'https://api.parse.com/1/classes/medications/' + id,

@@ -9,13 +9,14 @@
 	padding: 50px
 	background: #000
 
-	.screen
+	.screen		
 		min-height: 483px
 		min-width: 450px
 		border: 2px solid black		
 		background: #222 url('/media/images/screenBg.png') no-repeat
 		background-size: auto auto
 		color: #fff
+		overflow:hidden
 
 		.nav-bar
 			position: absolute
@@ -62,31 +63,28 @@
 				
 				a:nth-child(6)
 					div:hover
-						background-color: orangered
-					
+						background-color: orangered				
 
-		.content
+		.content			
 			height: 479px						
-			padding: 20px 0 0 150px
-			overflow: hidden
+			padding: 20px 0 0 150px			
+			overflow-y: scroll
+			overflow-x: hidden		
+			overflow: -moz-scrollbars-none
+			-ms-overflow-style: none
 
 			.medications-table
 				table
 					th
 						background-color: #393939
-					tr:nth-child(odd)
-						background-color: #333333
+					tr
+						background-color: #333
+					tr:nth-child(even)
+						background-color: #4d4d4d
 					td
 						text-align: center
-			
-			.active-meds
-				tr:nth-child(even)
-					background-color: #4d4d4d
-			
-			.discontinued-meds
-				tr:nth-child(even)
-					background-color: #4d4d4d
-
+						background-color: transparent
+				
 			.main-link
 				a					
 					font-size: 25px
@@ -154,4 +152,7 @@
 				font-size: 16px
 			.green-bg
 				background-color: green
+
+		.content::-webkit-scrollbar
+			width: 0 !important
 				

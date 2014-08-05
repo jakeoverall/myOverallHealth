@@ -48,17 +48,19 @@ body {
     .demo .screen .content {
       height: 479px;
       padding: 20px 0 0 150px;
-      overflow: hidden; }
+      overflow-y: scroll;
+      overflow-x: hidden;
+      overflow: -moz-scrollbars-none;
+      -ms-overflow-style: none; }
       .demo .screen .content .medications-table table th {
         background-color: #393939; }
-      .demo .screen .content .medications-table table tr:nth-child(odd) {
+      .demo .screen .content .medications-table table tr {
         background-color: #333333; }
+      .demo .screen .content .medications-table table tr:nth-child(even) {
+        background-color: #4d4d4d; }
       .demo .screen .content .medications-table table td {
-        text-align: center; }
-      .demo .screen .content .active-meds tr:nth-child(even) {
-        background-color: #4d4d4d; }
-      .demo .screen .content .discontinued-meds tr:nth-child(even) {
-        background-color: #4d4d4d; }
+        text-align: center;
+        background-color: transparent; }
       .demo .screen .content .main-link a {
         font-size: 25px;
         color: white;
@@ -114,3 +116,5 @@ body {
         font-size: 16px; }
       .demo .screen .content .green-bg {
         background-color: green; }
+    .demo .screen .content::-webkit-scrollbar {
+      width: 0 !important; }
