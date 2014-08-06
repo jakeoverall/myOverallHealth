@@ -1,6 +1,7 @@
 ﻿<div app-nav></div>
 <div class="content">
-    <div class="col-lg-10">
+    <div class="col-lg-10" ng-controller="dxSearchCtrl">
         Hello From History
+        <input class="form-control" ng-model="dxSearch" /><button ng-click="searchDx()">Search</button>
     </div>
 </div>
