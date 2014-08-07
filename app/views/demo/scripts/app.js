@@ -163,6 +163,9 @@ myHealthApp.config(['$routeProvider', '$httpProvider', function ($routeProvider,
         }).when('/history/:id', {
             templateUrl: '/app/views/demo/views/history/history.html',
             controller: 'profilesCtrl',
+        }).when('/history/:id/immunizations', {
+            templateUrl: '/app/views/demo/views/history/immunizations.html',
+            controller: 'profilesCtrl',
         }).when('/symptoms/:id', {
             templateUrl: '/app/views/demo/views/symptoms/symptoms.html',
             controller: 'profilesCtrl',

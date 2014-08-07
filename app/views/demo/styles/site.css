@@ -116,5 +116,25 @@ body {
         font-size: 16px; }
       .demo .screen .content .green-bg {
         background-color: green; }
+      .demo .screen .content .immunizations table tr th.rotate {
+        height: 80px;
+        white-space: nowrap; }
+        .demo .screen .content .immunizations table tr th.rotate div {
+          margin-left: -15px;
+          transform: translate(25px, 51px) rotate(315deg);
+          width: 10px; }
+          .demo .screen .content .immunizations table tr th.rotate div span {
+            padding: 3px 5px; }
+      .demo .screen .content .immunizations table tr td {
+        width: 60px;
+        height: 60px;
+        border: 1px solid #cccccc;
+        padding: 10px; }
+      .demo .screen .content .immunizations table tr .recommended {
+        background-color: green; }
+      .demo .screen .content .immunizations table tr .if-needed {
+        background-color: darkgreen; }
+      .demo .screen .content .immunizations table tr td:hover {
+        background-color: blue; }
     .demo .screen .content::-webkit-scrollbar {
       width: 0 !important; }
