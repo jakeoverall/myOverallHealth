@@ -1,0 +1,29 @@
+{
+  "name": "myOverallHealth",
+  "version": "0.0.0",
+  "homepage": "https://github.com/joverall22/myOverallHealth",
+  "authors": [
+    "joverall22 <joverall22@gmail.com>"
+  ],
+  "moduleType": [
+    "node"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-resource": "~1.2.19",
+    "angular-bootstrap": "~0.11.0",
+    "angular": "~1.2.19",
+    "angular-route": "~1.2.19",
+    "angular-ui-calendar": "~0.8.1",
+    "bootstrap": "~3.2.0",
+    "font-awesome": "~4.1.0"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "myOverallHealth",
+  "version": "0.0.0",
+  "description": "Health App Demo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joverall22/myOverallHealth.git"
+  },
+  "author": "Jake Overall",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joverall22/myOverallHealth/issues"
+  },
+  "homepage": "https://github.com/joverall22/myOverallHealth",
+  "dependencies": {
+    "express": "^4.8.2",
+    "mongoose": "^3.8.14"
+  }
+}
