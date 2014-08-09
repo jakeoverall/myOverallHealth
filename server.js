@@ -1,11 +1,23 @@
 ﻿var express = require('express');
 var mongoose = require('mongoose');
+var bodyParser = require('body-parser');
+var mongo = require('mongodb');
+
+
 
 var app = express();
 var port = 1120;
 
-mongoose.connect('mongodb://localhost/myOverallHealth');
+app.use(function (req, res, next) {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
+    res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+    next();
+});
 
+app.use(bodyParser.json());
+
+mongoose.connect('mongodb://localhost/myOverallHealth');
 var db = mongoose.connection;
 
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -15,45 +27,26 @@ db.once('open', function callback() {
         firstName: String,
         lastName: String
     });
-    
+
     var Profile = mongoose.model('Profile', profileSchema);
 
-    //var jake = new Profile({ firstName: 'Jake', lastName: 'Overall' });
-    //console.log(jake.firstName + ' ' + jake.lastName);
 
-    //jake.save(function(err) {
-    //    if (err) {
-    //        return console.error(err);
-    //    } else {
-    //       return console.log('object: ' + this.firstName + ' ' + this.lastName + ' was saved to the Database');
-    //    }
-    //});
-
-    //var getProfiles = Profile.find(function(err, profiles) {
-    //        if (err) {
-    //            return console.error(err);
-    //        }
-    //        return profiles;
-    //    });
-
-    var getProfiles = function () {
-        Profile.find(function(err, profiles) {
-            if (err) {
-                return console.error(err);
-            }
-            console.log(profiles);
-            return profiles;
-        });
-    };
-
+    //Routes
     app.get('/profiles', function (req, res) {
-        var profiles = getProfiles();
-        res.status(200).json(profiles);
+        Profile.find({}, function(err, profiles) {
+            var profileMap = {};
+            profiles.forEach(function(profile) {
+                profileMap[profile._id] = profile;
+            });
+            res.status(200).json(profileMap);
+        });
     });
-
+    console.log('Db is set to ' + db.name);
 });
 
 
-app.listen(port, function() {
+
+
+app.listen(port, function () {
     console.log('listening on port:' + port);
-})
+});
