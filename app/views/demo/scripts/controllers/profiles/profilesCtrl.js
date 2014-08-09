@@ -46,7 +46,7 @@ myHealthApp.controller('profilesCtrl', ['$scope', 'parseService', function ($sco
             this.profile.removed = false;
             this.profile.removedAt = null;
 
-            parseService.updateProfile(this.profile, this.profile.objectId).then(function(res) {
+            parseService.updateProfile(this.profile).then(function(res) {
                 console.log(res);
                 getProfiles();
             });

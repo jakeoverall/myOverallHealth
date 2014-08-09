@@ -71,7 +71,7 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
 
             var details = profile;
         
-            parseService.updateProfile(details, profile.objectId).then(function (response) {
+            parseService.updateProfile(details).then(function (response) {
                 console.log(response);
                 $scope.editDetails();
             });
@@ -85,7 +85,7 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
             profile.removed = true;
             profile.removedAt = new Date();
 
-            parseService.removeProfile(profile, profile.objectId).then(function(response) {
+            parseService.removeProfile(profile).then(function(response) {
                 console.log(response);
                 $location.path('/profiles');
             });

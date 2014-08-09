@@ -2,8 +2,8 @@
 
 myHealthApp.service('parseService', function ($http) {
 
-    this.profile = {};
-
+    this.med = {};
+    
     this.getProfiles = function () {
         return $http({
             method: 'GET',
@@ -19,21 +19,21 @@ myHealthApp.service('parseService', function ($http) {
         });
     };
 
-    this.updateProfile = function(data, id) {
+    this.updateProfile = function (data) {
         return $http({
             method: 'PUT',
-            url: 'https://api.parse.com/1/classes/profiles/' + id,
+            url: 'https://api.parse.com/1/classes/profiles/' + data.objectId,
             data: data
         });
     };
 
 
-    this.removeProfile = function (data, id) {
+    this.removeProfile = function (data) {
         return $http({
             method: 'PUT',
-            url: 'https://api.parse.com/1/classes/profiles/' + id,
+            url: 'https://api.parse.com/1/classes/profiles/' + data.objectId,
             data: data
-    });
+        });
     };
 
 
@@ -47,16 +47,16 @@ myHealthApp.service('parseService', function ($http) {
     };
 
 
-    this.getMeds = function() {
+    this.getMeds = function () {
         return $http({
             method: 'GET',
             url: 'https://api.parse.com/1/classes/medications/'
-        }).then(function(res) {
+        }).then(function (res) {
             return res.data.results;
         });
     };
 
-    this.addMed = function(data) {
+    this.addMed = function (data) {
         return $http({
             method: 'POST',
             url: 'https://api.parse.com/1/classes/medications',
@@ -64,27 +64,27 @@ myHealthApp.service('parseService', function ($http) {
         });
     };
 
-    this.updateMed = function (data, id) {
+    this.setMed = function (data) {
         return $http({
-            method: 'PUT',
-            url: 'https://api.parse.com/1/classes/medications/' + id,
-            data: data
+            method: 'GET',
+            url: 'https://api.parse.com/1/classes/medications/' + data.objectId
         });
     };
 
-
-    this.discontinueMedication = function (data, id) {
-        return $http({
-            method: 'PUT',
-            url: 'https://api.parse.com/1/classes/medications/' + id,
-            data: data
-        });
-    };
     
-    this.removeMedication = function (data, id) {
+    
+    this.updateMed = function (data) {
+        return $http({
+            method: 'PUT',
+            url: 'https://api.parse.com/1/classes/medications/' + data.objectId,
+            data: data
+        });
+    };
+
+    this.removeMedication = function (data) {
         return $http({
             method: 'DELETE',
-            url: 'https://api.parse.com/1/classes/medications/' + id,
+            url: 'https://api.parse.com/1/classes/medications/' + data.objectId,
         });
     };
 
