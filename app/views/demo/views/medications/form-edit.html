@@ -37,14 +37,14 @@
         </p>
 
         <label for="rxNumber">Prescription Number</label>
-        <input class="form-control" type="text" ng-model="med.rxNumber" id="rxNumber" placeholder="Example: X34521BC1" />
+        <input class="form-control" type="text" placeholder="Example: X34521BC1" id="rxNumber" ng-model="med.rxNumber" />
 
         <label for="notes">Notes</label>
         <input class="form-control" type="text" ng-model="med.notes" id="notes" placeholder="Example: Take as needed for breakthough pain" />
 
         <div class="modal-footer">
             <input class="btn btn-success" type="submit" id="submit" value="Update Medication" />
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-warning" ng-click="cancelEdit()">Cancel</button>
         </div>
     </form>
 </div>

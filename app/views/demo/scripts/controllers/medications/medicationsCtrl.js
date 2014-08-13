@@ -1,6 +1,6 @@
 ﻿var myHealthApp = angular.module('myHealthApp');
 
-myHealthApp.controller('medicationsCtrl', ['$scope', 'parseService', function ($scope, parseService) {
+myHealthApp.controller('medicationsCtrl', ['$scope', 'parseService', '$route', function ($scope, parseService, $route) {
 
     
     var getMeds = function () {
@@ -10,8 +10,44 @@ myHealthApp.controller('medicationsCtrl', ['$scope', 'parseService', function ($
         });
     };
 
+    //---------------------------------New Medication---------------------------------------------------------------------------
+    $scope.formShow = false;
+    $scope.addMeds = function () {
+        $scope.formShow = !$scope.formShow;
+    };
 
+    $scope.routes = ['PO - By Mouth', 'PR - Per Rectum', 'TOP - Apply Topically', 'INJ - Inject SubQ or IM', 'OU - Both Eyes ', 'OD - Rigth Eye', 'OS - Left Eye', 'AU - Both Eyes', 'AD - Right Ear', 'AS - Left Ear', 'INH - Inhaled'];
 
+    $scope.route = 'PO - By Mouth';
+
+    $scope.addMed = function () {
+        var med = {
+            name: this.name,
+            strength: this.strength,
+            quantity: this.quantity,
+            route: this.route,
+            frequency: this.frequency,
+            startDate: this.startDate,
+            rxNumber: this.rxNumber,
+            notes: this.notes,
+            profileId: $route.current.params.id,
+            active: true
+        };
+
+        parseService.addMed(med).then(function (res) {
+            document.getElementById('addMedicationForm').reset();
+            $scope.addMedicationForm.$setPristine();
+            getMeds();
+            $scope.formShow = false;
+        });
+    };
+
+    $scope.cancel = function () {
+        document.getElementById('addMedicationForm').reset();
+        $scope.addMedicationForm.$setPristine();
+        $scope.formShow = false;
+    };
+    
     //---------------------------------Edit Medication---------------------------------------------------------------------------
 
     $scope.editForm = false;
@@ -25,8 +61,6 @@ myHealthApp.controller('medicationsCtrl', ['$scope', 'parseService', function ($
         });
     };
     
-    $scope.routes = ['PO - By Mouth', 'PR - Per Rectum', 'TOP - Apply Topically', 'INJ - Inject SubQ or IM', 'OU - Both Eyes ', 'OD - Rigth Eye', 'OS - Left Eye', 'AU - Both Eyes', 'AD - Right Ear', 'AS - Left Ear', 'INH - Inhaled'];
-
     $scope.editMed = function () {
         parseService.updateMed($scope.med).then(function (res) {
             getMeds();
@@ -34,7 +68,7 @@ myHealthApp.controller('medicationsCtrl', ['$scope', 'parseService', function ($
         });
     };
 
-    $scope.cancel = function () {
+    $scope.cancelEdit = function () {
         $scope.editForm = false;
     };
    
@@ -61,9 +95,6 @@ myHealthApp.controller('medicationsCtrl', ['$scope', 'parseService', function ($
             getMeds();
         });
     };
-
-
-    //---------------------------------------------------------------------------------------------------------------
 
     getMeds();
 
