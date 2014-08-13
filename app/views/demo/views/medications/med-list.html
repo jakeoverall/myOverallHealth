@@ -1,78 +1,77 @@
-﻿
-<button class="btn btn-primary pull-right" ng-href="#/medications/{{profile.objectId}}/add">Add Medication</button>
+﻿<div edit-med ng-show="editForm"></div>
+<div ng-show="!editForm">
+    <div class="medications-table">
+        <table class="table table-striped table-bordered table-responsive">
+            <thead>Active Medications</thead>
+            <tbody>
+                <tr>
+                    <th>Start Date</th>
+                    <th>Name</th>
+                    <th>Strength</th>
+                    <th>Quantity</th>
+                    <th>Route</th>
+                    <th>Frequency</th>
+                    <th>Rx Number</th>
+                    <th>Notes</th>
+                    <th>Actions</th>
+                </tr>
+                <tr ng-repeat="med in medications | filter:{active: true}  | filter:profile.objectId">
+                    <td>{{med.startDate | date}}</td>
+                    <td>{{med.name}}</td>
+                    <td>{{med.strength}}</td>
+                    <td>{{med.quantity}}</td>
+                    <td>{{med.route}}</td>
+                    <td>{{med.frequency}}</td>
+                    <td>{{med.rxNumber}}</td>
+                    <td>{{med.notes}}</td>
+                    <td>
+                        <p class="btn-group">
+                            <button class="btn btn-primary btn-xs" ng-click="updateMed(med)"><i class="glyphicon glyphicon-edit"></i></button>
+                            <button class="btn btn-warning btn-xs" ng-click="discontinueMedication(med)"><i class="glyphicon glyphicon-remove"></i></button>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
 
-<br />
-<div class="medications-table">
-    <table class="table table-striped table-bordered table-responsive">
-        <thead>Active Medications</thead>
-        <tbody>
-            <tr>
-                <th>Start Date</th>
-                <th>Name</th>
-                <th>Strength</th>
-                <th>Quantity</th>
-                <th>Route</th>
-                <th>Frequency</th>
-                <th>Rx Number</th>
-                <th>Notes</th>
-                <th>Actions</th>
-            </tr>
-            <tr ng-repeat="med in medications | filter:{active: true}  | filter:profile.objectId">
-                <td>{{med.startDate | date}}</td>
-                <td>{{med.name}}</td>
-                <td>{{med.strength}}</td>
-                <td>{{med.quantity}}</td>
-                <td>{{med.route}}</td>
-                <td>{{med.frequency}}</td>
-                <td>{{med.rxNumber}}</td>
-                <td>{{med.notes}}</td>
-                <td>
-                    <p class="btn-group">
-                        <button class="btn btn-primary btn-xs" ng-click="updateMed(med)"><i class="glyphicon glyphicon-edit"></i></button>
-                        <button class="btn btn-warning btn-xs" ng-click="discontinueMedication(med)"><i class="glyphicon glyphicon-remove"></i></button>
-                    </p>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
-</div>
+    </div>
 
 
-<hr />
+    <hr />
 
-<div class="medications-table">
-    <table class="table table-striped table-bordered table-responsive">
-        <thead>Discontinued Medications</thead>
-        <tbody>
-            <tr>
-                <th>Stop Date</th>
-                <th>Name</th>
-                <th>Strength</th>
-                <th>Quantity</th>
-                <th>Route</th>
-                <th>Frequency</th>
-                <th>Rx Number</th>
-                <th>Notes</th>
-                <th>Actions</th>
-            </tr>
-            <tr ng-repeat="med in medications | filter:{active: false} | filter:profile.objectId">
-                <td>{{med.dcDate | date}}</td>
-                <td>{{med.name}}</td>
-                <td>{{med.strength}}</td>
-                <td>{{med.quantity}}</td>
-                <td>{{med.route}}</td>
-                <td>{{med.frequency}}</td>
-                <td>{{med.rxNumber}}</td>
-                <td>{{med.notes}}</td>
-                <td>
-                    <p class="btn-group">
-                        <button class="btn btn-success btn-xs" ng-click="activateMed(med)"><i class="glyphicon glyphicon-eject"></i></button>
-                        <button class="btn btn-danger btn-xs" ng-click="removeMedication(med)"><i class="glyphicon glyphicon-remove"></i></button>
-                    </p>
-                </td>
-            </tr>
-        </tbody>
+    <div class="medications-table">
+        <table class="table table-striped table-bordered table-responsive">
+            <thead>Discontinued Medications</thead>
+            <tbody>
+                <tr>
+                    <th>Stop Date</th>
+                    <th>Name</th>
+                    <th>Strength</th>
+                    <th>Quantity</th>
+                    <th>Route</th>
+                    <th>Frequency</th>
+                    <th>Rx Number</th>
+                    <th>Notes</th>
+                    <th>Actions</th>
+                </tr>
+                <tr ng-repeat="med in medications | filter:{active: false} | filter:profile.objectId">
+                    <td>{{med.dcDate | date}}</td>
+                    <td>{{med.name}}</td>
+                    <td>{{med.strength}}</td>
+                    <td>{{med.quantity}}</td>
+                    <td>{{med.route}}</td>
+                    <td>{{med.frequency}}</td>
+                    <td>{{med.rxNumber}}</td>
+                    <td>{{med.notes}}</td>
+                    <td>
+                        <p class="btn-group">
+                            <button class="btn btn-success btn-xs" ng-click="activateMed(med)"><i class="glyphicon glyphicon-eject"></i></button>
+                            <button class="btn btn-danger btn-xs" ng-click="removeMedication(med)"><i class="glyphicon glyphicon-remove"></i></button>
+                        </p>
+                    </td>
+                </tr>
+            </tbody>
 
-    </table>
+        </table>
+    </div>
 </div>

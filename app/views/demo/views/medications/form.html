@@ -1,7 +1,7 @@
 ﻿<div class="modal-header">
-    <h3 class="modal-title">New Medication</h3>
-</div>
-<div class="modal-body">
+    <h3 class="modal-header">New Medication</h3>
+
+
     <form id="addMedicationForm" name="addMedicationForm" ng-submit="addMed()">
 
         <label for="name">Name:</label>
@@ -21,7 +21,7 @@
 
         <label for="startDate">Start Date</label>
         <p class="input-group" ng-controller="datePickerCtrl">
-            <input class="form-control" type="text" datepicker-popup="{{format}}" is-open="opened" ng-model="startDate" id="startDate" datepicker-options="dateOptions" />
+            <input class="form-control" type="text" placeholder="YYYY-MM-DD" datepicker-popup="{{format}}" is-open="opened" ng-model="startDate" id="startDate" datepicker-options="dateOptions" />
             <span class="input-group-btn">
                 <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
@@ -38,6 +38,5 @@
             <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
         </div>
     </form>
+
 </div>
-
-

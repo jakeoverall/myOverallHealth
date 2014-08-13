@@ -130,7 +130,7 @@ myHealthApp.controller('datePickerCtrl', ['$scope', function ($scope) {
 //Routes
 myHealthApp.config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
 
-    //$httpProvider.interceptors.push('httpRequestInterceptor');
+    $httpProvider.interceptors.push('httpRequestInterceptor');
 
 
     $routeProvider

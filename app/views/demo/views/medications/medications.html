@@ -4,7 +4,11 @@
     <div class="col-lg-12">
         <h1>Medications for {{profile.firstName}}</h1>
         
-        <div med-list></div>
+        <button class="btn btn-primary pull-right" ng-click="addMeds()">New Medication</button>
+        <div add-med ng-show="formShow"></div>
+        <br />
+
+        <div med-list ng-show="!formShow"></div>
 
     </div>
 </div>

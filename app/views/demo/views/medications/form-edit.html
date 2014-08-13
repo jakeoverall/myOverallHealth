@@ -1,4 +1,5 @@
-﻿<div class="modal-header">
+﻿
+<div class="modal-header">
     <h3 class="modal-title" ng-bind="med.name"></h3>
 </div>
 <div class="modal-body">
@@ -26,7 +27,7 @@
                 <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
             </span>
         </p>
-        
+
         <label for="dcDate">Stop Date</label>
         <p class="input-group" ng-controller="datePickerCtrl">
             <input class="form-control" type="text" datepicker-popup="{{format}}" is-open="opened" ng-model="med.dcDate" id="dcDate" datepicker-options="dateOptions" />
@@ -36,7 +37,7 @@
         </p>
 
         <label for="rxNumber">Prescription Number</label>
-        <input class="form-control" type="text" ng-model="rxNumber" id="med.rxNumber" placeholder="Example: X34521BC1" />
+        <input class="form-control" type="text" ng-model="med.rxNumber" id="rxNumber" placeholder="Example: X34521BC1" />
 
         <label for="notes">Notes</label>
         <input class="form-control" type="text" ng-model="med.notes" id="notes" placeholder="Example: Take as needed for breakthough pain" />
@@ -47,5 +48,3 @@
         </div>
     </form>
 </div>
-
-
