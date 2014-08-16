@@ -1,5 +1,24 @@
-﻿<label class="col-sm-6 control-label">Body Mass Index:</label>
-<div class="col-sm-6">
-    <span id="BMI">{{BMI | number:1}}</span>
-    <button class="btn btn-primary btn-sm" ng-click="calculateBMI()">Calculate</button>
+﻿
+<div class="graph-container">
+    <div class="graph-content">
+        <h3>Body Mass Index:</h3>
+        <div class="col-lg-8">
+            <label for="height">Height:</label>
+            <p id="height" ng-bind="profile.height + ' inches'"></p>
+            <label for="weight">Weight:</label>
+            <input id="weight" class="form-control" ng-model="profile.weight" />
+            <br />
+            <button class="btn btn-primary btn-sm" ng-click="calculateBMI(profile.weight)">Calculate</button>
+        </div>
+        <div class="col-lg-4">
+            <div class="bmi-graph">
+                <div class="indicators">
+                    <div class="obese">Obese</div>
+                    <div class="healthy">Healthly</div>
+                    <div class="underweight">Low</div>
+                </div>
+                <div class="bmi-slider" id="BMI">{{BMI | number:1}}</div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -43,19 +43,22 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
         }
     };
 
-    $scope.calculateBMI = function() {
-
-        $scope.BMI = ($scope.weight / ($scope.height * $scope.height)) * conversionFactor;
-
+    $scope.calculateBMI = function(weight) {
+        if (weight) {
+            $scope.BMI = (weight / ($scope.height * $scope.height)) * conversionFactor;
+        } else {
+            $scope.BMI = (this.weight / ($scope.height * $scope.height)) * conversionFactor;
+        }
+        
         if ($scope.BMI) {
             if ($scope.BMI <= 18.5) {
-                $('#BMI').css({ 'color': 'red' });
+                $('#BMI').css({ 'color': 'red', 'top': 120 - $scope.BMI });
             } else if ($scope.BMI >= 25 && $scope.BMI < 30) {
-                $('#BMI').css({ 'color': 'orangered' });
+                $('#BMI').css({ 'color': 'orangered', 'top': 70 - $scope.BMI });
             } else if ($scope.BMI >= 30) {
-                $('#BMI').css({ 'color': 'red' });
+                $('#BMI').css({ 'color': 'red', 'top': 60 - $scope.BMI });
             } else {
-                $('#BMI').css({ 'color': 'green' });
+                $('#BMI').css({ 'color': 'green', 'top': 90 - $scope.BMI });
             }
         }
     };
