@@ -8,12 +8,17 @@
             <div class="form-group">
                 <label class="col-sm-3 control-label">Height:</label>
                 <div class="col-sm-6 input-group" ng-show="edit">
-                    <input class="form-control" ng-model="height" placeholder="Height in Inches" />
-                    <span class="input-group-addon">Inches</span>
+                    <div class="form-inline">
+                        <div class="input-group">
+                            <input class="form-control" ng-model="feet" placeholder="Feet" />
+                            <span class="input-group-addon">ft</span>
+                            <input class="form-control" ng-model="inches" placeholder="Inches" />
+                            <span class="input-group-addon">in</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm-6" ng-show="!edit">{{height}} inches</div>
+                <div class="col-sm-6" ng-show="!edit">{{feet}}ft {{inches}}in</div>
             </div>
-
 
             <div class="form-group">
                 <label class="col-sm-3 control-label">Weight:</label>
@@ -55,7 +60,7 @@
 
     <div class="col-lg-4">
 
-        <div bmi></div>
+        <p id="BMI">BMI: {{BMI | number:1}}</p>
 
     </div>
 </div>

@@ -1,8 +1,23 @@
 ﻿<div app-nav></div>
 <div class="content">
     <div class="col-lg-10" ng-controller="dxSearchCtrl">
-        Hello From History
-        <input class="form-control" ng-model="dxSearch" /><button ng-click="searchDx()">Search</button>
+        <div class="col-lg-8">
+            <div class="form-inline">
+                <div class="form-group">
+                    <label class="sr-only" for="dxSearch">Diagnosis Lookup</label>
+                    <input class="form-control" id="dxSearch" ng-model="dxSearch" placeholder="Lookup Diagnosis" />
+                </div>
+                <button class="btn btn-primary" ng-click="searchDx()">Search</button>
+            </div>
+            <div class="result">
+                <div ng-repeat="dx in results">
+                    {{dx.description}}
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
     <a ng-href="#/history/{{profile.objectId}}/immunizations">Immunizations</a>
 </div>

@@ -1,16 +1,20 @@
-﻿
-<div class="graph-container">
+﻿<div class="graph-container">
     <div class="graph-content">
         <h3>Body Mass Index:</h3>
-        <div class="col-lg-8">
+        <div class="col-lg-7 bmi-info">
+            <p >"The BMI provides a simple numeric measure of a person's thickness or thinness, allowing health professionals to discuss overweight and underweight problems more objectively with their patients. It is meant to be used as a simple means of classifying sedentary individuals."</p>
+        </div>
+        <div class="col-lg-3">
             <label for="height">Height:</label>
-            <p id="height" ng-bind="profile.height + ' inches'"></p>
+            <p id="height" ng-bind="profile.feet + ' ft ' + profile.inches + ' in'"></p>
             <label for="weight">Weight:</label>
             <input id="weight" class="form-control" ng-model="profile.weight" />
             <br />
-            <button class="btn btn-primary btn-sm" ng-click="calculateBMI(profile.weight)">Calculate</button>
+            <div class="btn-group btn-group-sm">
+                <button class="btn btn-primary btn-sm" ng-click="calculateBMI(profile.weight)">Update</button>
+            </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-1">
             <div class="bmi-graph">
                 <div class="indicators">
                     <div class="obese">Obese</div>
@@ -19,6 +23,7 @@
                 </div>
                 <div class="bmi-slider" id="BMI">{{BMI | number:1}}</div>
             </div>
-        </div>
+        </div>        
     </div>
 </div>
+

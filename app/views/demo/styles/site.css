@@ -16,6 +16,12 @@ body {
     background: #222222 url("/media/images/screenBg.png") no-repeat;
     background-size: auto auto;
     color: white; }
+    .demo .screen .profiles-select {
+      color: #727577;
+      margin: 5px;
+      font-size: 20px; }
+    .demo .screen .profiles-select:hover {
+      color: white; }
     .demo .screen .nav-bar {
       position: absolute;
       width: 120px;

@@ -4,6 +4,7 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
 
     var profile = {};
 
+    //BMI Conversion Factor for non metric conversion
     var conversionFactor = 703;
 
     //form Controlls
@@ -24,6 +25,8 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
             console.log(response);
             $scope.profile = profile;
             $scope.height = profile.height;
+            $scope.feet = profile.feet;
+            $scope.inches = profile.inches;
             $scope.weight = profile.weight;
             $scope.bloodType = profile.bloodType;
             $scope.gender = profile.gender;
@@ -31,7 +34,7 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
             $scope.calculateBMI();
         });
     };
-    
+
 
     var getGenderClass = function () {
         if ($scope.gender === 'Male') {
@@ -43,16 +46,25 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
         }
     };
 
-    $scope.calculateBMI = function(weight) {
+    $scope.calculateBMI = function (weight) {
+
+        var heightInches = function () {
+            var feetToInches = (12 * $scope.feet);
+            var inches = parseInt($scope.inches);
+            return feetToInches + inches;
+        }();
+
         if (weight) {
-            $scope.BMI = (weight / ($scope.height * $scope.height)) * conversionFactor;
+            $scope.BMI = (weight / (heightInches * heightInches)) * conversionFactor;
+            $scope.weight = weight;
+            $scope.saveDetails();
         } else {
-            $scope.BMI = (this.weight / ($scope.height * $scope.height)) * conversionFactor;
+            $scope.BMI = (this.weight / (heightInches * heightInches)) * conversionFactor;
         }
-        
+
         if ($scope.BMI) {
             if ($scope.BMI <= 18.5) {
-                $('#BMI').css({ 'color': 'red', 'top': 120 - $scope.BMI });
+                $('#BMI').css({ 'color': 'red', 'top': 110 - $scope.BMI });
             } else if ($scope.BMI >= 25 && $scope.BMI < 30) {
                 $('#BMI').css({ 'color': 'orangered', 'top': 70 - $scope.BMI });
             } else if ($scope.BMI >= 30) {
@@ -64,31 +76,32 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
     };
 
     $scope.saveDetails = function () {
-            $scope.calculateBMI();
-            getGenderClass();
-            profile.height = $scope.height;
-            profile.weight = $scope.weight;
-            profile.BMI = $scope.BMI;
-            profile.gender = $scope.gender;
-            profile.bloodType = $scope.bloodType;
+        $scope.calculateBMI();
+        getGenderClass();
+        profile.inches = $scope.inches;
+        profile.feet = $scope.feet;
+        profile.weight = $scope.weight;
+        profile.BMI = $scope.BMI;
+        profile.gender = $scope.gender;
+        profile.bloodType = $scope.bloodType;
 
-            var details = profile;
-        
-            parseService.updateProfile(details).then(function (response) {
-                console.log(response);
-                $scope.editDetails();
-            });
+        var details = profile;
+
+        parseService.updateProfile(details).then(function (response) {
+            console.log(response);
+            $scope.editDetails();
+        });
     };
 
     $scope.removeProfile = function () {
 
         var verify = prompt('To remove this profile type in ' + profile.firstName + ' ' + profile.lastName + ' Exactly as it appears here');
-        
+
         if (verify === profile.firstName + ' ' + profile.lastName) {
             profile.removed = true;
             profile.removedAt = new Date();
 
-            parseService.removeProfile(profile).then(function(response) {
+            parseService.removeProfile(profile).then(function (response) {
                 console.log(response);
                 $location.path('/profiles');
             });
@@ -98,20 +111,20 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
 
     };
 
-        getProfile();
+    getProfile();
 
-        //todo Extract Allergies to their own Directive or controller
-        //$scope.Allergy = function (name, type, reaction) {
-        //    this.name = name;
-        //    this.type = type;
-        //    this.reaction = reaction;
-        //};
+    //todo Extract Allergies to their own Directive or controller
+    //$scope.Allergy = function (name, type, reaction) {
+    //    this.name = name;
+    //    this.type = type;
+    //    this.reaction = reaction;
+    //};
 
-        //$scope.addAllergy = function (allergy) {
-        //    $scope.allergies.push(allergy);
-        //};
+    //$scope.addAllergy = function (allergy) {
+    //    $scope.allergies.push(allergy);
+    //};
 
-        //$scope.allergies = [];
+    //$scope.allergies = [];
 
-        //$scope.redCrossLink = 'http://www.redcrossblood.org/learn-about-blood/blood-types';
-    }]);
+    //$scope.redCrossLink = 'http://www.redcrossblood.org/learn-about-blood/blood-types';
+}]);

@@ -91,9 +91,11 @@ myHealthApp.controller('medicationsCtrl', ['$scope', 'parseService', '$route', f
     };
 
     $scope.removeMedication = function(med) {
-        parseService.removeMedication(med).then(function () {
-            getMeds();
-        });
+        if (confirm('Are you sure you want to delete ' + med.name + ' ?')) {
+            parseService.removeMedication(med).then(function () {
+                getMeds();   
+            });
+        }
     };
 
     getMeds();

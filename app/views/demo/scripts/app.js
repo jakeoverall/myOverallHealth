@@ -132,7 +132,6 @@ myHealthApp.config(['$routeProvider', '$httpProvider', function ($routeProvider,
 
     $httpProvider.interceptors.push('httpRequestInterceptor');
 
-
     $routeProvider
         .when('/', {
             templateUrl: '/app/views/demo/views/shared/main.html'
