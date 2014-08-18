@@ -1,23 +1,51 @@
 ﻿<div app-nav></div>
 <div class="content">
-    <div class="col-lg-10" ng-controller="dxSearchCtrl">
-        <div class="col-lg-8">
-            <div class="form-inline">
-                <div class="form-group">
-                    <label class="sr-only" for="dxSearch">Diagnosis Lookup</label>
-                    <input class="form-control" id="dxSearch" ng-model="dxSearch" placeholder="Lookup Diagnosis" />
-                </div>
-                <button class="btn btn-primary" ng-click="searchDx()">Search</button>
-            </div>
+    <div ng-controller="dxSearchCtrl">
+        <div class="col-lg-12 problem-list">
+            <h3>{{profile.firstName}}'s Diagnoses</h3>
+            <table class="table table-responsive table-bordered">
+                <tr>
+                    <th>Diagnosis</th>
+                    <th>Actions</th>
+                </tr>
+                <tr ng-repeat="dg in diagnosis | filter:profile.objectId">
+                    <td>{{dg.description}}</td>
+                    <td>
+                        <p class="btn-group">
+                            <a class="btn btn-success btn-xs" href="" target="_blank" ng-href="{{dg.dxUrl}}"><i class="fa fa-clipboard"></i></a>
+                            <a class="btn btn-danger btn-xs" href="" target="_blank" ng-click="removeDx(dg)"><i class="fa fa-minus-square"></i></a>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-lg-12">
             <div class="result">
-                <div ng-repeat="dx in results">
-                    {{dx.description}}
+                <div class="form-inline pull-right">
+                    <div class="form-group">
+                        <input class="form-control" id="dxSearch" ng-model="dxSearch" placeholder="Diagnosis Name" />
+                    </div>
+                    <button class="btn btn-primary" ng-click="searchDx()"><i class="fa fa-search"></i></button>
                 </div>
+                <h3>Search</h3>
+
+                <table class="table table-responsive table-bordered">
+                    <tr>
+                        <th>Diagnosis</th>
+                        <th>Actions</th>
+                    </tr>
+                    <tr ng-repeat="dx in results">
+                        <td>{{dx.description}}</td>
+                        <td>
+                            <p class="btn-group">
+                                <a class="btn btn-success btn-xs" href="" target="_blank" ng-href="{{dx.dxUrl}}"><i class="fa fa-clipboard"></i></a>
+                                <a class="btn btn-primary btn-xs" href="" target="_blank" ng-click="addDx(dx)"><i class="fa fa-plus-square"></i></a>
+                            </p>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
-
-
-
     </div>
-    <a ng-href="#/history/{{profile.objectId}}/immunizations">Immunizations</a>
+    <!--<a ng-href="#/history/{{profile.objectId}}/immunizations">Immunizations</a>-->
 </div>

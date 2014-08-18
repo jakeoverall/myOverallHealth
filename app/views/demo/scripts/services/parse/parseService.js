@@ -4,6 +4,8 @@ myHealthApp.service('parseService', function ($http) {
 
     this.med = {};
     
+    //---------------------------Profiles-----------------------------------------------------------
+
     this.getProfiles = function () {
         return $http({
             method: 'GET',
@@ -48,7 +50,8 @@ myHealthApp.service('parseService', function ($http) {
         });
     };
 
-
+    //---------------------------Medications-----------------------------------------------------------
+    
     this.getMeds = function () {
         return $http({
             method: 'GET',
@@ -89,6 +92,49 @@ myHealthApp.service('parseService', function ($http) {
             url: 'https://api.parse.com/1/classes/medications/' + data.objectId,
         });
     };
+
+
+    //---------------------------Diagnosis-----------------------------------------------------------
+    
+    this.getDxs = function () {
+        return $http({
+            method: 'GET',
+            url: 'https://api.parse.com/1/classes/diagnoses/'
+        }).then(function (res) {
+            return res.data.results;
+        });
+    };
+
+    this.addDx = function (data) {
+        return $http({
+            method: 'POST',
+            url: 'https://api.parse.com/1/classes/diagnoses',
+            data: data
+        });
+    };
+
+    this.setDx = function (data) {
+        return $http({
+            method: 'GET',
+            url: 'https://api.parse.com/1/classes/diagnoses/' + data.objectId
+        });
+    };
+
+    this.updateDx = function (data) {
+        return $http({
+            method: 'PUT',
+            url: 'https://api.parse.com/1/classes/diagnoses/' + data.objectId,
+            data: data
+        });
+    };
+
+    this.removeDx = function (data) {
+        return $http({
+            method: 'DELETE',
+            url: 'https://api.parse.com/1/classes/diagnoses/' + data.objectId,
+        });
+    };
+
 
 
 });
