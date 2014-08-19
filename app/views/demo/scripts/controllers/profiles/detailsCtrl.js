@@ -1,9 +1,9 @@
 ﻿var myHealthApp = angular.module('myHealthApp');
 
-myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams', '$location', function ($scope, parseService, $routeParams, $location) {
+myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams', '$location', 'profileRef', function ($scope, parseService, $routeParams, $location, profileRef) {
 
-    var profile = {};
-
+    var profile = profileRef;
+    $scope.profile = profile;
     //BMI Conversion Factor for non metric conversion
     var conversionFactor = 703;
 
@@ -12,30 +12,7 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
     $scope.editDetails = function () {
         $scope.edit = !$scope.edit;
     };
-
-
-    //$scope Variables
-    $scope.bloodTypes = ['A -', 'B -', 'O -', 'AB -', 'A +', 'B +', 'O +', 'AB +'];
-
-
-    //$scope Functions
-    var getProfile = function () {
-        parseService.getProfile($routeParams.id).then(function (response) {
-            profile = response;
-            console.log(response);
-            $scope.profile = profile;
-            $scope.height = profile.height;
-            $scope.feet = profile.feet;
-            $scope.inches = profile.inches;
-            $scope.weight = profile.weight;
-            $scope.bloodType = profile.bloodType;
-            $scope.gender = profile.gender;
-            getGenderClass();
-            $scope.calculateBMI();
-        });
-    };
-
-
+    
     var getGenderClass = function () {
         if ($scope.gender === 'Male') {
             $scope.genderBtn = 'btn btn-primary btn-sm';
@@ -45,6 +22,42 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
             $scope.genderClass = 'fa fa-female';
         }
     };
+
+
+    //$scope Variables
+    //$scope.profile = profile;
+    //$scope.height = profile.height;
+    //$scope.feet = profile.feet;
+    //$scope.inches = profile.inches;
+    //$scope.weight = profile.weight;
+    //$scope.bloodType = profile.bloodType;
+    //$scope.gender = profile.gender;
+    //getGenderClass();
+    //$scope.calculateBMI();
+
+
+    $scope.bloodTypes = ['A -', 'B -', 'O -', 'AB -', 'A +', 'B +', 'O +', 'AB +'];
+
+
+    //$scope Functions
+    //var getProfile = function () {
+    //    parseService.getProfile($routeParams.id).then(function (response) {
+    //        profile = response;
+    //        console.log(response);
+    //        $scope.profile = profile;
+    //        $scope.height = profile.height;
+    //        $scope.feet = profile.feet;
+    //        $scope.inches = profile.inches;
+    //        $scope.weight = profile.weight;
+    //        $scope.bloodType = profile.bloodType;
+    //        $scope.gender = profile.gender;
+    //        getGenderClass();
+    //        $scope.calculateBMI();
+    //    });
+    //};
+
+
+
 
     $scope.calculateBMI = function (weight) {
 
@@ -111,7 +124,7 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
 
     };
 
-    getProfile();
+    //getProfile();
 
     //todo Extract Allergies to their own Directive or controller
     //$scope.Allergy = function (name, type, reaction) {

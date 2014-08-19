@@ -58,13 +58,13 @@ body {
       overflow-x: hidden;
       overflow: -moz-scrollbars-none;
       -ms-overflow-style: none; }
-      .demo .screen .content .medications-table table th {
+      .demo .screen .content .custom-table table th {
         background-color: #393939; }
-      .demo .screen .content .medications-table table tr {
+      .demo .screen .content .custom-table table tr {
         background-color: #333333; }
-      .demo .screen .content .medications-table table tr:nth-child(even) {
+      .demo .screen .content .custom-table table tr:nth-child(even) {
         background-color: #4d4d4d; }
-      .demo .screen .content .medications-table table td {
+      .demo .screen .content .custom-table table td {
         text-align: center;
         background-color: transparent; }
       .demo .screen .content .main-link a {

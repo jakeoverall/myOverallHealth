@@ -24,6 +24,13 @@
     "angular-route": "~1.2.19",
     "angular-ui-calendar": "~0.8.1",
     "bootstrap": "~3.2.0",
-    "font-awesome": "~4.1.0"
+    "font-awesome": "~4.1.0",
+    "angularfire": "~0.8.0",
+    "firebase": "~1.0.19",
+    "angular-ui-router": "~0.2.10",
+    "restangular": "~1.4.0"
+  },
+  "resolutions": {
+    "angular": "~1.2.x"
   }
 }

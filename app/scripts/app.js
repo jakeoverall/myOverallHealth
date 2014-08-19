@@ -1,35 +1,53 @@
-﻿var myHealth = angular.module('myHealth', ['ngRoute']);
+﻿var myHealth = angular.module('myHealth', ['ui.router']);
 
 myHealth.controller('navCtrl', ['$scope', function ($scope) {
     $scope.nav = [{
-        'name': 'Download',
-        'link': '#/download'
+        'name': 'Download'
     }, {
         'name': 'Demo',
         'link': '/app/views/demo/views/index.html'
     }, {
-        'name': 'About',
-        'link': '#/about'
+        'name': 'About'
     }, {
-        'name': 'Contact',
-        'link': '#/contact'
+        'name': 'Contact'
     }];
 }]);
 
-myHealth.config(function ($routeProvider) {
-    $routeProvider
-        .when('/about', {
+
+myHealth.config(function ($stateProvider, $urlRouterProvider) {
+
+    $urlRouterProvider.otherwise('/Download');
+
+    $stateProvider
+        .state('About', {
+            url: '/About',
             templateUrl: '/app/views/about/about.html'
-        }).when('/download', {
+        }).state('Download', {
+            url: '/Download',
             templateUrl: '/app/views/download/download.html'
-        }).when('/contact', {
+        }).state('Contact', {
+            url: '/Contact',
             templateUrl: '/app/views/contact/contact.html'
-        }).when('/demo', {
+        }).state('Demo', {
+            url: '/app/views/demo/views/index.html',
             templateUrl: '/app/views/demo/views/index.html'
-        }).otherwise({
-            redirectTo: '/download'
         });
 });
+
+//myHealth.config(function ($routeProvider) {
+//    $routeProvider
+//        .when('/about', {
+//            templateUrl: '/app/views/about/about.html'
+//        }).when('/download', {
+//            templateUrl: '/app/views/download/download.html'
+//        }).when('/contact', {
+//            templateUrl: '/app/views/contact/contact.html'
+//        }).when('/demo', {
+//            templateUrl: '/app/views/demo/views/index.html'
+//        }).otherwise({
+//            redirectTo: '/download'
+//        });
+//});
 
 myHealth.directive('nav', function () {
     return {

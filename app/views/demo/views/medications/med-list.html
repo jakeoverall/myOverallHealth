@@ -1,6 +1,6 @@
 ﻿<div edit-med ng-show="editForm"></div>
 <div ng-show="!editForm">
-    <div class="medications-table">
+    <div class="custom-table">
         <table class="table table-striped table-bordered table-responsive">
             <thead>Active Medications</thead>
             <tbody>
@@ -26,6 +26,7 @@
                     <td>{{med.notes}}</td>
                     <td>
                         <p class="btn-group">
+                            <a class="btn btn-success btn-xs" href="" target="_blank" ng-href="{{med.infoUrl}}"><i class="fa fa-clipboard"></i></a>
                             <button class="btn btn-primary btn-xs" ng-click="updateMed(med)"><i class="glyphicon glyphicon-edit"></i></button>
                             <button class="btn btn-warning btn-xs" ng-click="discontinueMedication(med)"><i class="glyphicon glyphicon-remove"></i></button>
                         </p>
@@ -39,7 +40,7 @@
 
     <hr />
 
-    <div class="medications-table">
+    <div class="custom-table">
         <table class="table table-striped table-bordered table-responsive">
             <thead>Discontinued Medications</thead>
             <tbody>

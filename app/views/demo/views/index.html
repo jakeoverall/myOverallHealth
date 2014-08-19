@@ -15,7 +15,7 @@
     <div class="container">
         <div class="demo">
             <div class="screen">
-                <div ng-view="">
+                <div ui-view>
 
                 </div>
             </div>
@@ -37,6 +37,14 @@
         <script type="text/javascript" src="/bower_components/angular-ui-calendar/src/calendar.js"></script>
         <script type="text/javascript" src="/bower_components/fullcalendar/fullcalendar.js"></script>
         <script type="text/javascript" src="/bower_components/fullcalendar/gcal.js"></script>
+        <script type="text/javascript" src="/bower_components/lodash/dist/lodash.js"></script>
+        <script type="text/javascript" src="/bower_components/restangular/dist/restangular.js"></script>
+
+        <!-- Firebase -->
+        <script type="text/javascript" src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script type="text/javascript" src="/bower_components/firebase/firebase.js"></script>
+        <script type="text/javascript" src="/bower_components/firebase-simple-login/firebase-simple-login.js"></script>
+        <script type="text/javascript" src="/bower_components/angularfire/dist/angularfire.js"></script>
 
         <script type="text/javascript" src="/app/scripts/app.js"></script>
 
@@ -53,8 +61,8 @@
         <script type="text/javascript" src="/app/views/demo/scripts/controllers/profiles/detailsCtrl.js"></script>
         <script type="text/javascript" src="/app/views/demo/scripts/controllers/navCtrl.js"></script>
         <script type="text/javascript" src="/app/views/demo/scripts/controllers/medications/medicationsCtrl.js"></script>
-        <!--<script type="text/javascript" src="/app/views/demo/scripts/controllers/medications/medFormCtrls.js"></script>-->
         <script type="text/javascript" src="/app/views/demo/scripts/controllers/history/dxSearchCtrl.js"></script>
+        <script type="text/javascript" src="/app/views/demo/scripts/controllers/schedule/scheduleCtrl.js"></script>
 
         <!-- Directives -->
         <script type="text/javascript" src="/app/views/demo/scripts/directives/nav.js"></script>
@@ -63,6 +71,7 @@
         <script type="text/javascript" src="/app/views/demo/scripts/directives/medications/medList.js"></script>
         <script type="text/javascript" src="/app/views/demo/scripts/directives/medications/addMed.js"></script>
         <script type="text/javascript" src="/app/views/demo/scripts/directives/medications/editMed.js"></script>
+        <script type="text/javascript" src="/app/views/demo/scripts/directives/history/diagnoses.js"></script>
 
     </scripts>
 

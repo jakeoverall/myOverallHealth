@@ -30,7 +30,7 @@
         </form>
         <h3>Active Profiles</h3>
         <div class="profiles" ng-repeat="profile in profiles" ng-show="!profile.removed">
-            <a ng-href="#/details/{{profile.objectId}}"><div class="profile"><i class="fa fa-user"></i><br />{{profile.firstName}} {{profile.lastName}}</div></a>
+            <a ui-sref="profile({id: profile.objectId})"><div class="profile"><i class="fa fa-user"></i><br />{{profile.firstName}} {{profile.lastName}}</div></a>
         </div>
         <div class="profiles">
             <a ng-click="toggleForm()"><div class="profile"><i class="fa fa-plus"></i><br />New Profile</div></a>

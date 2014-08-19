@@ -3,7 +3,7 @@
 myHealthApp.service('parseService', function ($http) {
 
     this.med = {};
-    
+    this.profile = {};
     //---------------------------Profiles-----------------------------------------------------------
 
     this.getProfiles = function () {

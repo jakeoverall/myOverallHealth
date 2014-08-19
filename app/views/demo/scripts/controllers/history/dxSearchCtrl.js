@@ -17,8 +17,25 @@ myHealthApp.controller('dxSearchCtrl', ['$scope', 'icd9DataService', 'parseServi
     };
 
     $scope.addDx = function (dx) {
-        dx.profileId = $scope.profile.objectId;
-        parseService.addDx(dx).then(function (res) {
+        var add = true;
+        $scope.diagnosis.forEach(function(d) {
+            if (dx.description === d.description) {
+                alert(dx.description + ' is already on your list of diagnosis.');
+                add = false;
+            }
+        });
+        if (add) {
+            dx.onset = prompt("When was " + $scope.profile.firstName + "diagnosed with " + dx.description + "? If unkown please provide the approximent year of onset");
+            dx.profileId = $scope.profile.objectId;
+            parseService.addDx(dx).then(function (res) {
+                console.log(res);
+                getDxs();
+            });
+        }
+    };
+
+    $scope.updateDx = function(dx) {
+        parseService.updateDx(dx).then(function(res) {
             console.log(res);
             getDxs();
         });

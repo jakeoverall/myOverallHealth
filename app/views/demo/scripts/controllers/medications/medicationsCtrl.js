@@ -31,6 +31,7 @@ myHealthApp.controller('medicationsCtrl', ['$scope', 'parseService', '$route', f
             rxNumber: this.rxNumber,
             notes: this.notes,
             profileId: $route.current.params.id,
+            infoUrl: 'http://www.drugs.com/search.php?searchterm=' + this.name,
             active: true
         };
 

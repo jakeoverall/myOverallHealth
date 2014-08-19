@@ -2,7 +2,7 @@
     <div class="container">
         <a class="navbar-brand" href="#">My Overall Health</a>
         <ul class="nav navbar-nav">
-            <li ng-repeat="link in nav" class=""><a href="#" ng-href="{{link.link}}">{{link.name}}</a></li>
+            <li ng-repeat="link in nav" class=""><a href="#" ui-sref="{{link.name}}">{{link.name}}</a></li>
         </ul>
         <ul class="nav navbar-nav pull-right">
             <li><a href="#">Login</a></li>

@@ -1,0 +1,48 @@
+﻿<div class="col-lg-12 custom-table">
+    <table class="table table-responsive table-bordered">
+        <thead>Active Diagnoses</thead>
+        <tr>
+            <th class="col-sm-2">Onset</th>
+            <th class="col-sm-7">Diagnosis</th>
+            <th class="col-sm-2">Actions</th>
+        </tr>
+        <tr ng-repeat="dg in diagnosis | filter:profile.objectId">
+            <td>{{dg.onset}}</td>
+            <td>{{dg.description}}</td>
+            <td>
+                <p class="btn-group">
+                    <a class="btn btn-success" href="" target="_blank" ng-href="{{dg.dxUrl}}"><i class="fa fa-clipboard"></i></a>
+                    <a class="btn btn-primary" href="" target="_blank" ng-click="updateDx(dg)"><i class="fa fa-edit"></i></a>
+                    <a class="btn btn-danger" href="" target="_blank" ng-click="removeDx(dg)"><i class="fa fa-minus-square"></i></a>
+                </p>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="col-lg-12 custom-table">
+    <div class="result">
+        <div class="form-inline pull-right">
+            <div class="form-group">
+                <input class="form-control" id="dxSearch" ng-model="dxSearch" placeholder="Diagnosis Name" />
+            </div>
+            <button class="btn btn-primary" ng-click="searchDx()"><i class="fa fa-search"></i></button>
+        </div>
+        
+        <h3>Search</h3>
+        <table class="table table-responsive table-bordered">
+            <tr>
+                <th class="col-sm-9">Diagnosis</th>
+                <th class="col-sm-3">Actions</th>
+            </tr>
+            <tr ng-repeat="dx in results">
+                <td>{{dx.description}}</td>
+                <td>
+                    <p class="btn-group">
+                        <a class="btn btn-success" href="" target="_blank" ng-href="{{dx.dxUrl}}"><i class="fa fa-clipboard"></i></a>
+                        <a class="btn btn-primary" href="" target="_blank" ng-click="addDx(dx)"><i class="fa fa-plus-square"></i></a>
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
