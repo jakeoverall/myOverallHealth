@@ -23,19 +23,6 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$stateParams',
         }
     };
 
-
-    //$scope Variables
-    //$scope.profile = profile;
-    //$scope.height = profile.height;
-    //$scope.feet = profile.feet;
-    //$scope.inches = profile.inches;
-    //$scope.weight = profile.weight;
-    //$scope.bloodType = profile.bloodType;
-    //$scope.gender = profile.gender;
-    //getGenderClass();
-    //$scope.calculateBMI();
-
-
     $scope.bloodTypes = ['A -', 'B -', 'O -', 'AB -', 'A +', 'B +', 'O +', 'AB +'];
 
 
@@ -44,50 +31,20 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$stateParams',
         parseService.getProfile(profile.objectId).then(function (response) {
             profile = response;
             $scope.profile = profile;
-            getGenderClass();
-            $scope.calculateBMI();
+            //getGenderClass();
+            //$scope.calculateBMI();
+        });
+    };
+    $scope.save = function () {
+        parseService.updateProfile(profile).then(function (response) {
+            console.log(response);
+            getProfile();
         });
     };
     
-
-    $scope.calculateBMI = function (weight) {
-        var heightInches = function () {
-            var feetToInches = (12 * $scope.profile.feet);
-            var inches = parseInt($scope.profile.inches);
-            return feetToInches + inches;
-        }();
-
-        if (weight) {
-            $scope.BMI = (weight / (heightInches * heightInches)) * conversionFactor;
-            $scope.profile.weight = weight;
-            $scope.saveDetails();
-        } else {
-            $scope.profile.BMI = (this.profile.weight / (heightInches * heightInches)) * conversionFactor;
-        }
-
-        if ($scope.profile.BMI) {
-            if ($scope.BMI <= 18.5) {
-                $('#BMI').css({ 'color': 'red', 'top': 110 - $scope.BMI });
-            } else if ($scope.BMI >= 25 && $scope.BMI < 30) {
-                $('#BMI').css({ 'color': 'orangered', 'top': 70 - $scope.BMI });
-            } else if ($scope.BMI >= 30) {
-                $('#BMI').css({ 'color': 'red', 'top': 60 - $scope.BMI });
-            } else {
-                $('#BMI').css({ 'color': 'green', 'top': 90 - $scope.BMI });
-            }
-        }
-    };
-
     $scope.saveDetails = function () {
-        $scope.calculateBMI();
         getGenderClass();
-        profile.inches = $scope.profile.inches;
-        profile.feet = $scope.profile.feet;
-        profile.weight = $scope.profile.weight;
-        profile.BMI = $scope.profile.BMI;
-        profile.gender = $scope.profile.gender;
-        profile.bloodType = $scope.profile.bloodType;
-
+        
         var details = profile;
 
         parseService.updateProfile(details).then(function (response) {
@@ -113,12 +70,9 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$stateParams',
             alert('The profile was not removed');
         }
     };
-
-    $scope.calculateBMI();
+    
     getGenderClass();
-
-    //getProfile();
-
+    
     //todo Extract Allergies to their own Directive or controller
     //$scope.Allergy = function (name, type, reaction) {
     //    this.name = name;

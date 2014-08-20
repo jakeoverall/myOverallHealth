@@ -17,7 +17,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6" ng-show="!edit">{{profile.feet}}ft {{profile.inches}}in</div>
+                <div class="col-sm-6 form-control-static" ng-show="!edit">{{profile.feet}}ft {{profile.inches}}in</div>
             </div>
 
             <div class="form-group">
@@ -26,7 +26,7 @@
                     <input class="form-control" ng-model="profile.weight" placeholder="Weight in Pounds" />
                     <span class="input-group-addon">Pounds</span>
                 </div>
-                <div class="col-sm-6" ng-show="!edit">{{profile.weight}} lbs</div>
+                <div class="col-sm-6 form-control-static" ng-show="!edit">{{profile.weight}} lbs</div>
             </div>
 
             <div class="form-group">
@@ -34,7 +34,7 @@
                 <div class="col-sm-6" ng-show="edit">
                     <select class="form-control" ng-model="profile.bloodType" ng-options="bloodType for bloodType in bloodTypes"></select>
                 </div>
-                <div class="col-sm-6" ng-show="!edit">{{profile.bloodType}}</div>
+                <div class="col-sm-6 form-control-static" ng-show="!edit">{{profile.bloodType}}</div>
             </div>
 
             <div class="form-group">

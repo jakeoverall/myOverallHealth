@@ -25,7 +25,9 @@ myHealthApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', fun
         })
         .state('profile', {
             abstract: true,
+            url: '/profile/:profileId',
             template: '<div ui-view></div>',
+            controller: 'detailsCtrl',
             resolve: {
                 profileRef: function (parseService, $stateParams) {
                     return parseService.getProfile($stateParams.profileId);
@@ -35,7 +37,6 @@ myHealthApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', fun
         .state('profile.details', {
             url: '/details',
             templateUrl: '/app/views/demo/views/profiles/details.html',
-            controller: 'detailsCtrl'
         })
         .state('profile.medications', {
             url: '/medications',
