@@ -1,8 +1,7 @@
 ﻿var myHealthApp = angular.module('myHealthApp');
 
-myHealthApp.controller('medicationsCtrl', ['$scope', 'parseService', '$route', function ($scope, parseService, $route) {
+myHealthApp.controller('medicationsCtrl', ['$scope', 'parseService', '$state', function ($scope, parseService, $state) {
 
-    
     var getMeds = function () {
         parseService.getMeds().then(function(res) {
             console.log(res);
@@ -30,7 +29,7 @@ myHealthApp.controller('medicationsCtrl', ['$scope', 'parseService', '$route', f
             startDate: this.startDate,
             rxNumber: this.rxNumber,
             notes: this.notes,
-            profileId: $route.current.params.id,
+            profileId: $scope.profile.objetId,
             infoUrl: 'http://www.drugs.com/search.php?searchterm=' + this.name,
             active: true
         };

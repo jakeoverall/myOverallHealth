@@ -10,57 +10,60 @@
                 <div class="col-sm-6 input-group" ng-show="edit">
                     <div class="form-inline">
                         <div class="input-group">
-                            <input class="form-control" ng-model="feet" placeholder="Feet" />
+                            <input class="form-control" ng-model="profile.feet" placeholder="Feet" />
                             <span class="input-group-addon">ft</span>
-                            <input class="form-control" ng-model="inches" placeholder="Inches" />
+                            <input class="form-control" ng-model="profile.inches" placeholder="Inches" />
                             <span class="input-group-addon">in</span>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-6" ng-show="!edit">{{feet}}ft {{inches}}in</div>
+                <div class="col-sm-6" ng-show="!edit">{{profile.feet}}ft {{profile.inches}}in</div>
             </div>
 
             <div class="form-group">
                 <label class="col-sm-3 control-label">Weight:</label>
                 <div class="col-sm-6 input-group" ng-show="edit">
-                    <input class="form-control" ng-model="weight" placeholder="Weight in Pounds" />
+                    <input class="form-control" ng-model="profile.weight" placeholder="Weight in Pounds" />
                     <span class="input-group-addon">Pounds</span>
                 </div>
-                <div class="col-sm-6" ng-show="!edit">{{weight}} lbs</div>
+                <div class="col-sm-6" ng-show="!edit">{{profile.weight}} lbs</div>
             </div>
 
             <div class="form-group">
                 <label class="col-sm-3 control-label">Blood Type:</label>
                 <div class="col-sm-6" ng-show="edit">
-                    <select class="form-control" ng-model="bloodType" ng-options="bloodType for bloodType in bloodTypes"></select>
+                    <select class="form-control" ng-model="profile.bloodType" ng-options="bloodType for bloodType in bloodTypes"></select>
                 </div>
-                <div class="col-sm-6" ng-show="!edit">{{bloodType}}</div>
+                <div class="col-sm-6" ng-show="!edit">{{profile.bloodType}}</div>
             </div>
 
             <div class="form-group">
                 <label class="col-sm-3 control-label">Gender:</label>
                 <div class="col-sm-6" ng-show="edit">
-                    <label class="btn btn-primary btn-sm" ng-model="gender" btn-radio="'Male'" uncheckable><i class="fa fa-male"></i> Male</label>
-                    <label class="btn btn-pink btn-sm" ng-model="gender" btn-radio="'Female'" uncheckable><i class="fa fa-female"></i> Female</label>
+                    <label class="btn btn-primary btn-sm" ng-model="profile.gender" btn-radio="'Male'" uncheckable><i class="fa fa-male"></i> Male</label>
+                    <label class="btn btn-pink btn-sm" ng-model="profile.gender" btn-radio="'Female'" uncheckable><i class="fa fa-female"></i> Female</label>
                 </div>
                 <div class="col-sm-3" ng-show="!edit">
-                    <label ng-class="genderBtn"><i ng-class="genderClass"></i> {{gender}}</label>
+                    <label ng-class="genderBtn"><i ng-class="genderClass"></i> {{profile.gender}}</label>
                 </div>
             </div>
 
             <div class="btn-group pull-right" ng-show="!edit">
-                <button class="btn btn-primary btn-sm" ng-click="editDetails()"><i class="fa fa-edit"></i> Edit</button>
+                <button class="btn btn-primary btn-sm" ng-click="showForm()"><i class="fa fa-edit"></i> Edit</button>
                 <button class="btn btn-danger btn-sm" ng-click="removeProfile()"><i class="fa fa-minus-square"></i> Remove</button>
             </div>
+            
+            <div class="btn-group pull-right" ng-show="edit">
+                <button class="btn btn-success btn-sm pull-right" ng-click="saveDetails()"><i class="fa fa-save"></i> Save</button>
+                <button class="btn btn-danger btn-sm pull-right" ng-click="showForm()"><i class="fa fa-times"></i> Cancel</button>
+            </div>
 
-            <button class="btn btn-success btn-sm pull-right" ng-click="saveDetails()" ng-show="edit"><i class="fa fa-save"></i> Save</button>
-
-        </form>
+</form>
     </div>
 
     <div class="col-lg-4">
 
-        <p id="BMI">BMI: {{BMI | number:1}}</p>
+        <p id="BMI">BMI: {{profile.BMI | number:1}}</p>
 
     </div>
 </div>

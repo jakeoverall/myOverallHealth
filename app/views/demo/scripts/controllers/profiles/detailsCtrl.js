@@ -1,6 +1,6 @@
 ﻿var myHealthApp = angular.module('myHealthApp');
 
-myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams', '$location', 'profileRef', function ($scope, parseService, $routeParams, $location, profileRef) {
+myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$stateParams', '$location', 'profileRef', function ($scope, parseService, $stateParams, $location, profileRef) {
 
     var profile = profileRef;
     $scope.profile = profile;
@@ -9,12 +9,12 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
 
     //form Controlls
     $scope.edit = false;
-    $scope.editDetails = function () {
+    $scope.showForm = function () {
         $scope.edit = !$scope.edit;
     };
     
     var getGenderClass = function () {
-        if ($scope.gender === 'Male') {
+        if ($scope.profile.gender === 'Male') {
             $scope.genderBtn = 'btn btn-primary btn-sm';
             $scope.genderClass = 'fa fa-male';
         } else {
@@ -40,42 +40,32 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
 
 
     //$scope Functions
-    //var getProfile = function () {
-    //    parseService.getProfile($routeParams.id).then(function (response) {
-    //        profile = response;
-    //        console.log(response);
-    //        $scope.profile = profile;
-    //        $scope.height = profile.height;
-    //        $scope.feet = profile.feet;
-    //        $scope.inches = profile.inches;
-    //        $scope.weight = profile.weight;
-    //        $scope.bloodType = profile.bloodType;
-    //        $scope.gender = profile.gender;
-    //        getGenderClass();
-    //        $scope.calculateBMI();
-    //    });
-    //};
-
-
-
+    var getProfile = function () {
+        parseService.getProfile(profile.objectId).then(function (response) {
+            profile = response;
+            $scope.profile = profile;
+            getGenderClass();
+            $scope.calculateBMI();
+        });
+    };
+    
 
     $scope.calculateBMI = function (weight) {
-
         var heightInches = function () {
-            var feetToInches = (12 * $scope.feet);
-            var inches = parseInt($scope.inches);
+            var feetToInches = (12 * $scope.profile.feet);
+            var inches = parseInt($scope.profile.inches);
             return feetToInches + inches;
         }();
 
         if (weight) {
             $scope.BMI = (weight / (heightInches * heightInches)) * conversionFactor;
-            $scope.weight = weight;
+            $scope.profile.weight = weight;
             $scope.saveDetails();
         } else {
-            $scope.BMI = (this.weight / (heightInches * heightInches)) * conversionFactor;
+            $scope.profile.BMI = (this.profile.weight / (heightInches * heightInches)) * conversionFactor;
         }
 
-        if ($scope.BMI) {
+        if ($scope.profile.BMI) {
             if ($scope.BMI <= 18.5) {
                 $('#BMI').css({ 'color': 'red', 'top': 110 - $scope.BMI });
             } else if ($scope.BMI >= 25 && $scope.BMI < 30) {
@@ -91,18 +81,19 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
     $scope.saveDetails = function () {
         $scope.calculateBMI();
         getGenderClass();
-        profile.inches = $scope.inches;
-        profile.feet = $scope.feet;
-        profile.weight = $scope.weight;
-        profile.BMI = $scope.BMI;
-        profile.gender = $scope.gender;
-        profile.bloodType = $scope.bloodType;
+        profile.inches = $scope.profile.inches;
+        profile.feet = $scope.profile.feet;
+        profile.weight = $scope.profile.weight;
+        profile.BMI = $scope.profile.BMI;
+        profile.gender = $scope.profile.gender;
+        profile.bloodType = $scope.profile.bloodType;
 
         var details = profile;
 
         parseService.updateProfile(details).then(function (response) {
             console.log(response);
-            $scope.editDetails();
+            getProfile();
+            $scope.showForm();
         });
     };
 
@@ -121,8 +112,10 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$routeParams',
         } else {
             alert('The profile was not removed');
         }
-
     };
+
+    $scope.calculateBMI();
+    getGenderClass();
 
     //getProfile();
 

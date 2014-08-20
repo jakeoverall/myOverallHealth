@@ -26,7 +26,6 @@ myHealthApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', fun
         .state('profile', {
             abstract: true,
             template: '<div ui-view></div>',
-            controller: 'detailsCtrl',
             resolve: {
                 profileRef: function (parseService, $stateParams) {
                     return parseService.getProfile($stateParams.profileId);
@@ -34,27 +33,28 @@ myHealthApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', fun
             }
         })
         .state('profile.details', {
-            url: '/profile/:profileId',
+            url: '/details',
             templateUrl: '/app/views/demo/views/profiles/details.html',
+            controller: 'detailsCtrl'
         })
         .state('profile.medications', {
-            url: '/profile/:id/medications',
+            url: '/medications',
             templateUrl: '/app/views/demo/views/medications/medications.html',
         })
         .state('profile.schedules', {
-            url: '/profile/:id/schedules',
+            url: '/schedules',
             templateUrl: '/app/views/demo/views/schedules/schedules.html',
         })
         .state('profile.logs', {
-            url: '/profile/:id/logs',
+            url: '/logs',
             templateUrl: '/app/views/demo/views/logs/logs.html',
         })
         .state('profile.history', {
-            url: '/profile/:id/history',
+            url: '/history',
             templateUrl: '/app/views/demo/views/history/history.html',
         })
         .state('profile.symptoms', {
-            url: '/profile/:id/symptoms',
+            url: '/symptoms',
             templateUrl: '/app/views/demo/views/symptoms/symptoms.html',
         });
 }]);
