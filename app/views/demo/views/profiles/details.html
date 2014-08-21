@@ -2,7 +2,7 @@
 <div class="content">
     <h1>{{profile.firstName}} {{profile.lastName}}</h1>
 
-    <div class="col-lg-8">
+    <div class="col-lg-9">
         <form class="form-horizontal">
 
             <div class="form-group">
@@ -61,9 +61,10 @@
 </form>
     </div>
 
-    <div class="col-lg-4">
-
-        <p id="BMI">BMI: {{profile.BMI | number:1}}</p>
+    <div class="col-lg-3">
+        
+        <div bmi-small></div>
+        <!--<p id="BMI">BMI: {{profile.BMI | number:1}}</p>-->
 
     </div>
 </div>
