@@ -36,31 +36,34 @@ myHealthApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', fun
             resolve: {
                 profileRef: function (firebaseService, $stateParams) {
                     return firebaseService.getProfile($stateParams.profileId);
+                },
+                medicationsRef: function (firebaseService, $stateParams) {
+                    return firebaseService.getMedications($stateParams.profileId);
                 }
             }
         })
         .state('profile.details', {
             url: '/details',
-            templateUrl: '/app/views/demo/views/profiles/details.html',
+            templateUrl: '/app/views/demo/views/profiles/details.html'
         })
         .state('profile.medications', {
             url: '/medications',
-            templateUrl: '/app/views/demo/views/medications/medications.html',
+            templateUrl: '/app/views/demo/views/medications/medications.html'
         })
         .state('profile.schedules', {
             url: '/schedules',
-            templateUrl: '/app/views/demo/views/schedules/schedules.html',
+            templateUrl: '/app/views/demo/views/schedules/schedules.html'
         })
         .state('profile.logs', {
             url: '/logs',
-            templateUrl: '/app/views/demo/views/logs/logs.html',
+            templateUrl: '/app/views/demo/views/logs/logs.html'
         })
         .state('profile.history', {
             url: '/history',
-            templateUrl: '/app/views/demo/views/history/history.html',
+            templateUrl: '/app/views/demo/views/history/history.html'
         })
         .state('profile.symptoms', {
             url: '/symptoms',
-            templateUrl: '/app/views/demo/views/symptoms/symptoms.html',
+            templateUrl: '/app/views/demo/views/symptoms/symptoms.html'
         });
 }]);

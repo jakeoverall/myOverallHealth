@@ -5,7 +5,7 @@ myHealth.controller('navCtrl', ['$scope', function ($scope) {
         'name': 'Download'
     }, {
         'name': 'Demo',
-        'link': '/app/views/demo/views/index.html'
+        'link': 'http://app/views/demo/views/index.html'
     }, {
         'name': 'About'
     }, {

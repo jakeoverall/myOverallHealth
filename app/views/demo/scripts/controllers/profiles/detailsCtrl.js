@@ -4,8 +4,6 @@ myHealthApp.controller('detailsCtrl', ['$scope', '$stateParams', '$location', 'p
     
     $scope.profile = profileRef;
     
-    console.log($scope.profile);
-    
     //form Controlls
     $scope.edit = false;
     $scope.showForm = function () {
