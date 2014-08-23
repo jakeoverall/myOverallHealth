@@ -3,7 +3,7 @@
 myHealthApp.controller('profilesCtrl', ['$scope', 'profilesRef', function ($scope, profilesRef) {
 
     $scope.profiles = profilesRef.$asArray();
-
+    console.log(profilesRef);
     //form Controls
     $scope.showForm = false;
     $scope.toggleForm = function () {

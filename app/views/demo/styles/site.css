@@ -9,138 +9,154 @@ body {
   border-radius: 10px;
   padding: 50px;
   background: black; }
-  .demo .screen {
-    min-height: 483px;
-    min-width: 450px;
-    border: 2px solid black;
-    background: #222222 url("/media/images/screenBg.png") no-repeat;
-    background-size: auto auto;
-    color: white; }
-    .demo .screen .profiles-select {
-      color: #727577;
-      margin: 5px;
-      font-size: 20px; }
-    .demo .screen .profiles-select:hover {
-      color: white; }
-    .demo .screen .nav-bar {
-      position: absolute;
-      width: 120px;
-      height: 480px;
-      background-color: #444444; }
-      .demo .screen .nav-bar .nav-link div {
-        height: 80px;
-        padding: 12px 20px;
-        border-bottom: 1px solid black;
-        color: white;
-        text-align: center; }
-        .demo .screen .nav-bar .nav-link div .fa {
-          font-size: 30px;
-          padding: 5px 20px; }
-      .demo .screen .nav-bar .nav-link a {
-        color: white;
-        text-decoration: none; }
-      .demo .screen .nav-bar .nav-link a:nth-child(1) div:hover {
-        background-color: purple; }
-      .demo .screen .nav-bar .nav-link a:nth-child(2) div:hover {
-        background-color: green; }
-      .demo .screen .nav-bar .nav-link a:nth-child(3) div:hover {
-        background-color: orange; }
-      .demo .screen .nav-bar .nav-link a:nth-child(4) div:hover {
-        background-color: red; }
-      .demo .screen .nav-bar .nav-link a:nth-child(5) div:hover {
-        background-color: blue; }
-      .demo .screen .nav-bar .nav-link a:nth-child(6) div:hover {
-        background-color: orangered; }
-    .demo .screen .content {
-      height: 479px;
-      padding: 20px 0 0 150px;
-      overflow-y: scroll;
-      overflow-x: hidden;
-      overflow: -moz-scrollbars-none;
-      -ms-overflow-style: none; }
-      .demo .screen .content .custom-table table th {
-        background-color: #393939; }
-      .demo .screen .content .custom-table table tr {
-        background-color: #333333; }
-      .demo .screen .content .custom-table table tr:nth-child(even) {
-        background-color: #4d4d4d; }
-      .demo .screen .content .custom-table table td {
-        text-align: center;
-        background-color: transparent; }
-      .demo .screen .content .main-link a {
-        font-size: 25px;
-        color: white;
-        text-decoration: none; }
-      .demo .screen .content .main-link .fa {
-        font-size: 85px; }
-      .demo .screen .content .main-link .select-profiles {
-        background-color: #444444;
-        padding: 40px 0;
-        text-align: center;
-        margin: 15% 30%;
-        height: 200px;
-        width: 200px; }
-      .demo .screen .content .main-link .select-profiles:hover {
-        background-color: purple; }
-      .demo .screen .content .btn-sm {
-        font-size: 11px; }
-      .demo .screen .content .profiles {
-        display: inline-block; }
-        .demo .screen .content .profiles a {
-          text-decoration: none; }
-        .demo .screen .content .profiles a:hover {
-          cursor: pointer; }
-        .demo .screen .content .profiles .profile {
-          display: inline-block;
-          height: 120px;
-          width: 140px;
-          padding: 10px;
-          font-size: 13px;
-          font-weight: bold;
-          text-align: center;
-          text-decoration: none;
-          color: white;
-          background-color: #444444;
-          margin: 20px; }
-          .demo .screen .content .profiles .profile .fa {
-            font-size: 80px; }
-        .demo .screen .content .profiles .profile:hover {
-          background-color: purple; }
-      .demo .screen .content .btn-pink {
-        color: white;
-        background-color: #dfa5af;
-        border-color: #c5919a; }
-      .demo .screen .content .btn-pink:hover {
-        color: white;
-        background-color: #a86d78;
-        border-color: #a86d78; }
-      .demo .screen .content .btn-pink.active {
-        color: white;
-        background-color: #a86d78;
-        border-color: #a86d78; }
-      .demo .screen .content .fa {
-        font-size: 16px; }
-      .demo .screen .content .green-bg {
-        background-color: green; }
-      .demo .screen .content .immunizations table tr th.rotate {
-        height: 80px;
-        white-space: nowrap; }
-        .demo .screen .content .immunizations table tr th.rotate div {
-          margin-left: -15px;
-          transform: translate(25px, 51px) rotate(315deg);
-          width: 10px; }
-          .demo .screen .content .immunizations table tr th.rotate div span {
-            padding: 3px 5px; }
-      .demo .screen .content .immunizations table tr td {
-        width: 60px;
-        height: 60px;
-        border: 1px solid #cccccc;
-        padding: 10px; }
-      .demo .screen .content .immunizations table tr .recommended {
-        background-color: green; }
-      .demo .screen .content .immunizations table tr .if-needed {
-        background-color: darkgreen; }
-      .demo .screen .content .immunizations table tr td:hover {
-        background-color: blue; }
-    .demo .screen .content::-webkit-scrollbar {
-      width: 0 !important; }
+
+.screen {
+  min-height: 483px;
+  min-width: 450px;
+  border: 2px solid black;
+  background: #222222 url("/media/images/screenBg.png") no-repeat;
+  background-size: auto auto;
+  color: white; }
+
+.profiles-select {
+  color: #727577;
+  margin: 5px;
+  font-size: 20px; }
+
+.profiles-select:hover {
+  color: white; }
+
+.nav-bar {
+  position: absolute;
+  width: 120px;
+  height: 480px;
+  background-color: #444444; }
+  .nav-bar .nav-link div {
+    height: 80px;
+    padding: 12px 20px;
+    border-bottom: 1px solid black;
+    color: white;
+    text-align: center; }
+    .nav-bar .nav-link div .fa {
+      font-size: 30px;
+      padding: 5px 20px; }
+  .nav-bar .nav-link a {
+    color: white;
+    text-decoration: none; }
+  .nav-bar .nav-link a:nth-child(1) div:hover {
+    background-color: purple; }
+  .nav-bar .nav-link a:nth-child(2) div:hover {
+    background-color: green; }
+  .nav-bar .nav-link a:nth-child(3) div:hover {
+    background-color: orange; }
+  .nav-bar .nav-link a:nth-child(4) div:hover {
+    background-color: red; }
+  .nav-bar .nav-link a:nth-child(5) div:hover {
+    background-color: blue; }
+  .nav-bar .nav-link a:nth-child(6) div:hover {
+    background-color: orangered; }
+
+.content {
+  height: 479px;
+  padding: 20px 0 0 150px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none; }
+
+.content::-webkit-scrollbar {
+  width: 0 !important; }
+
+.custom-table table th {
+  background-color: #393939; }
+.custom-table table tr {
+  background-color: #333333; }
+.custom-table table tr:nth-child(even) {
+  background-color: #4d4d4d; }
+.custom-table table td {
+  text-align: center;
+  background-color: transparent; }
+
+.main-link a {
+  font-size: 25px;
+  color: white;
+  text-decoration: none; }
+.main-link .fa {
+  font-size: 85px; }
+.main-link .select-profiles {
+  background-color: #444444;
+  padding: 40px 0;
+  text-align: center;
+  margin: 15% 30%;
+  height: 200px;
+  width: 200px; }
+.main-link .select-profiles:hover {
+  background-color: purple; }
+
+.btn-sm {
+  font-size: 11px; }
+
+.profiles {
+  display: inline-block; }
+  .profiles a {
+    text-decoration: none; }
+  .profiles a:hover {
+    cursor: pointer; }
+  .profiles .profile {
+    display: inline-block;
+    height: 120px;
+    width: 140px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    background-color: #444444;
+    margin: 20px; }
+    .profiles .profile .fa {
+      font-size: 80px; }
+  .profiles .profile:hover {
+    background-color: purple; }
+
+.btn-pink {
+  color: white;
+  background-color: #dfa5af;
+  border-color: #c5919a; }
+
+.btn-pink:hover {
+  color: white;
+  background-color: #a86d78;
+  border-color: #a86d78; }
+
+.btn-pink.active {
+  color: white;
+  background-color: #a86d78;
+  border-color: #a86d78; }
+
+.fa {
+  font-size: 16px; }
+
+.green-bg {
+  background-color: green; }
+
+.immunizations table tr th.rotate {
+  height: 80px;
+  white-space: nowrap; }
+  .immunizations table tr th.rotate div {
+    margin-left: -15px;
+    transform: translate(25px, 51px) rotate(315deg);
+    width: 10px; }
+    .immunizations table tr th.rotate div span {
+      padding: 3px 5px; }
+.immunizations table tr td {
+  width: 60px;
+  height: 60px;
+  border: 1px solid #cccccc;
+  padding: 10px; }
+.immunizations table tr .recommended {
+  background-color: green; }
+.immunizations table tr .if-needed {
+  background-color: darkgreen; }
+.immunizations table tr td:hover {
+  background-color: blue; }

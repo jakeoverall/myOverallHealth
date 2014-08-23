@@ -1,4 +1,4 @@
 ﻿window.env = {
     "environment": "development",
-    "firebase": "https://myoverallhealth.firebaseio.com/profiles"
+    "firebase": "https://myoverallhealth.firebaseio.com/dev"
 };
