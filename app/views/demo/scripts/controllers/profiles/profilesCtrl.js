@@ -1,14 +1,8 @@
 ﻿var myHealthApp = angular.module('myHealthApp');
 
-//Defining Profile
-var Profile = function (firstName, lastName, dob, profileId) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.dob = dob;
-    this.profileId = profileId;
-};
+myHealthApp.controller('profilesCtrl', ['$scope', 'profilesRef', function ($scope, profilesRef) {
 
-myHealthApp.controller('profilesCtrl', ['$scope', 'parseService', function ($scope, parseService) {
+    $scope.profiles = profilesRef.$asArray();
 
     //form Controls
     $scope.showForm = false;
@@ -16,25 +10,25 @@ myHealthApp.controller('profilesCtrl', ['$scope', 'parseService', function ($sco
         $scope.showForm = !$scope.showForm;
     };
 
-    var getProfiles = function () {
-        parseService.getProfiles().then(function (response) {
-            $scope.profiles = response;
-            $scope.profileId = $scope.profiles.length;
-        });
-    };
+    //var getProfiles = function () {
+    //    parseService.getProfiles().then(function (response) {
+    //        $scope.profiles = response;
+    //        $scope.profileId = $scope.profiles.length;
+    //    });
+    //};
 
 
     $scope.addProfile = function () {
-        //new profile instance
-        var profile = new Profile(this.firstName, this.lastName, this.dob, this.profileId);
-
+        
         //pushes profile to parse
-        parseService.addProfile(profile).then(function (status) {
-            console.log(status);
-            //gets Data from Parse to refresh the page with the profile just created
-            getProfiles();
-        });
+        //parseService.addProfile(profile).then(function (status) {
+        //    console.log(status);
+        //    //gets Data from Parse to refresh the page with the profile just created
+        //    getProfiles();
+        //});
 
+        $scope.profiles.$add({firstName: $scope.firstName, lastName: $scope.lastName});
+        
         //resets form
         document.getElementById('addProfileForm').reset();
         $scope.showForm = false;
@@ -45,14 +39,14 @@ myHealthApp.controller('profilesCtrl', ['$scope', 'parseService', function ($sco
         if (confirm('Would you like to restore this profile?')) {
             this.profile.removed = false;
             this.profile.removedAt = null;
-
-            parseService.updateProfile(this.profile).then(function(res) {
-                console.log(res);
-                getProfiles();
-            });
+            $scope.profiles.save();
+            //parseService.updateProfile(this.profile).then(function(res) {
+            //    console.log(res);
+            //    getProfiles();
+            //});
         } 
 
     };
 
-    getProfiles();
+    //getProfiles();
 }]);

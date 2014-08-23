@@ -21,7 +21,12 @@ myHealthApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', fun
         .state('profiles', {
             url: '/profiles',
             templateUrl: '/app/views/demo/views/profiles/profiles.html',
-            controller: 'profilesCtrl'
+            controller: 'profilesCtrl',
+            resolve: {
+                profilesRef: function(firebaseService) {
+                    return firebaseService.getProfiles();
+                }
+            }
         })
         .state('profile', {
             abstract: true,
@@ -29,8 +34,8 @@ myHealthApp.config(['$stateProvider', '$urlRouterProvider', '$httpProvider', fun
             template: '<div ui-view></div>',
             controller: 'detailsCtrl',
             resolve: {
-                profileRef: function (parseService, $stateParams) {
-                    return parseService.getProfile($stateParams.profileId);
+                profileRef: function (firebaseService, $stateParams) {
+                    return firebaseService.getProfile($stateParams.profileId);
                 }
             }
         })

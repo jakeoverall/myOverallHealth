@@ -6,7 +6,7 @@
             <button class="btn btn-danger pull-right" ng-click="toggleForm()"><i class="fa fa-times"></i></button>
             
 
-            <label for="profileId">Profiles: {{profileId}}</label>
+            <label for="profileId">Profiles: {{profiles.length}}</label>
             <input class="hidden" type="text" ng-model="profileId" id="profileId" value="profileId" required readonly />
             <br />
 
@@ -17,20 +17,20 @@
             <label for="lastName">Last Name</label>
             <input class="form-control" type="text" ng-model="lastName" id="lastName" required />
 
-            <label for="dob">Date of Birth</label>
+            <!--<label for="dob">Date of Birth</label>
             <p class="input-group" ng-controller="datePickerCtrl">
                 <input class="form-control" type="text" datepicker-popup="{{format}}" is-open="opened" ng-model="dob" id="dob" datepicker-options="dateOptions" ng-required="true" />
                 <span class="input-group-btn">
                     <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
                 </span>
-            </p>
+            </p>-->
 
             <input class="btn btn-success" type="submit" id="submit" value="+ Add Profile" />
-
         </form>
+
         <h3>Active Profiles</h3>
         <div class="profiles" ng-repeat="profile in profiles" ng-show="!profile.removed">
-            <a ui-sref="profile.details({profileId: profile.objectId})"><div class="profile"><i class="fa fa-user"></i><br />{{profile.firstName}} {{profile.lastName}}</div></a>
+            <a ui-sref="profile.details({profileId: profile.$id})"><div class="profile"><i class="fa fa-user"></i><br />{{profile.firstName}} {{profile.lastName}}</div></a>
         </div>
         <div class="profiles">
             <a ng-click="toggleForm()"><div class="profile"><i class="fa fa-plus"></i><br />New Profile</div></a>

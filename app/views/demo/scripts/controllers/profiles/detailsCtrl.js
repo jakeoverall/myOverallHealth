@@ -1,9 +1,10 @@
 ﻿var myHealthApp = angular.module('myHealthApp');
 
-myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$stateParams', '$location', 'profileRef', function ($scope, parseService, $stateParams, $location, profileRef) {
-
-    var profile = profileRef;
-    $scope.profile = profile;
+myHealthApp.controller('detailsCtrl', ['$scope', '$stateParams', '$location', 'profileRef', function ($scope, $stateParams, $location, profileRef) {
+    
+    $scope.profile = profileRef;
+    
+    console.log($scope.profile);
     
     //form Controlls
     $scope.edit = false;
@@ -11,6 +12,8 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$stateParams',
         $scope.edit = !$scope.edit;
     };
     
+    
+
     var getGenderClass = function () {
         if ($scope.profile.gender === 'Male') {
             $scope.genderBtn = 'btn btn-primary btn-sm';
@@ -25,46 +28,52 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$stateParams',
 
 
     //$scope Functions
-    var getProfile = function () {
-        parseService.getProfile(profile.objectId).then(function (response) {
-            profile = response;
-            $scope.profile = profile;
-        });
-    };
+    //var getProfile = function () {
+    //    parseService.getProfile(profile.objectId).then(function (response) {
+    //        profile = response;
+    //        $scope.profile = profile;
+    //    });
+    //};
+
     $scope.save = function () {
-        parseService.updateProfile(profile).then(function (response) {
-            getProfile();
-        });
+        $scope.profile.$save();
     };
-    
+
     $scope.saveDetails = function () {
         getGenderClass();
         calculateBMI($scope.profile.weight);
-        var details = profile;
-
-        parseService.updateProfile(details).then(function (response) {
-            console.log(response);
-            getProfile();
-            $scope.showForm();
-        });
+        $scope.profile.$save();
+        $scope.showForm();
     };
+    
+    //$scope.saveDetails = function () {
+    //    getGenderClass();
+    //    calculateBMI($scope.profile.weight);
+    //    var details = profile;
 
-    $scope.removeProfile = function () {
+    //    parseService.updateProfile(details).then(function (response) {
+    //        console.log(response);
+    //        getProfile();
+    //        $scope.showForm();
+    //    });
+    //};
 
-        var verify = prompt('To remove this profile type in ' + profile.firstName + ' ' + profile.lastName + ' Exactly as it appears here');
+    //$scope.removeProfile = function () {
 
-        if (verify === profile.firstName + ' ' + profile.lastName) {
-            profile.removed = true;
-            profile.removedAt = new Date();
+    //    var verify = prompt('To remove this profile type in ' + profile.firstName + ' ' + profile.lastName + ' Exactly as it appears here');
 
-            parseService.removeProfile(profile).then(function (response) {
-                console.log(response);
-                $location.path('/profiles');
-            });
-        } else {
-            alert('The profile was not removed');
-        }
-    };
+    //    if (verify === profile.firstName + ' ' + profile.lastName) {
+    //        profile.removed = true;
+    //        profile.removedAt = new Date();
+
+    //        parseService.removeProfile(profile).then(function (response) {
+    //            console.log(response);
+    //            $location.path('/profiles');
+    //        });
+    //    } else {
+    //        alert('The profile was not removed');
+    //    }
+    //};
     
 
 
@@ -104,10 +113,7 @@ myHealthApp.controller('detailsCtrl', ['$scope', 'parseService', '$stateParams',
 
     ////////
 
-
-
-
-    
+       
     getGenderClass();
     
     //todo Extract Allergies to their own Directive or controller
